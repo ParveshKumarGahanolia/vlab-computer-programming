@@ -1,3 +1,6 @@
+//	*name: JavaScript
+//  * author: Example Name <example.name@some.address.org>
+
 window.model = {
 
 }

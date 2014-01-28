@@ -1,3 +1,6 @@
+//	* name: JavaScript
+//  * author: Parvesh Kumar Gahanolia <parvesh@vlabs.ac.in>
+
 window.model = {
 inputNumber: 0,
 valueOfX: 210,
