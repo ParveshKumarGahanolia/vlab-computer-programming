@@ -1,5 +1,5 @@
 //	*name: JavaScript
-//  * author: Example Name <example.name@some.address.org>
+//  * author: Parvesh Kumar Gahanolia <parvesh@vlabs.ac.in>
 
 window.model = {
 

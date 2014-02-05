@@ -1,0 +1,167 @@
+/*author: Parvesh Kumar Gahanolia
+email: parvesh@vlabs.ac.in*/
+
+*{padding: 0 ; margin: 0 ;}
+
+body{
+	height: 100%;
+	position:absolute; top:0%; bottom:0%; right:0%; left:0%;
+	text-align: center;
+}
+
+.mainDiv{
+	position: absolute;
+	margin-top: 1%;
+	margin-left: 1%;
+	height: 6%;
+	margin-right: 1%;
+	width: 98%;
+	font-size: 1.5em;
+	padding-top: .5%;
+	border: 1px solid #969696;
+}
+
+.botmDivLeft, .botmDivMid, .botmDivRight{
+	float: left;
+	position: absolute;
+	margin-top: 6%;
+	margin-left: 1%;
+	height: 85%;
+	width: 26%;
+	border: 1px solid #969696;
+}
+
+.botmDivMid, .botmDivRight{
+ 	margin-left: 28%;
+ 	width: 35%;
+}
+
+.botmDivRight{
+ 	margin-left: 64%;
+}
+
+.botmDivLeft1, .botmDivLeft2, .botmDivLeft3, .botmDivLeft4, .botmDivRight1{
+ 	position: relative;
+ 	padding-top: 2%;
+ 	height: 6%;
+ 	width: 99.44%;
+ 	font-size: 1.2em;
+ 	border: 1px solid #969696;
+}
+
+.botmDivLeft2, .botmDivLeft4{
+	height: 35%;
+	margin-top: 2%;
+}
+
+.botmDivRight2{
+	position: relative;
+ 	padding-top: 2%;
+ 	height: 6%;
+ 	width: 99.44%;
+ 	font-size: 1.2em;
+	height: 60%;
+	margin-top: 1%;
+}
+
+.textAlignment{
+	padding-left: 2%;
+	text-align: left;
+	font-size: .9em;
+}
+
+.botmDivLeft3{
+	margin-top: 2%;
+}
+.botmDivLeft4{
+	height: 43.8%;
+}
+
+.codeText{
+	font-size: 1.6em;
+}
+
+.programCode{
+	text-align: left;
+	font-size: 1em;
+	margin-top: 1%;
+	margin-left: 2%;
+	line-height: 160%;
+}
+.textField{
+	float: left;
+	margin-left: 3%;
+	line-height: 160%;
+	
+}
+
+.buttonAlignment{
+	float: left;
+	width: 95%;
+	margin-top: 20%;
+}
+
+.tableDiv{
+	width: 100%;
+	height: 10%;
+}
+
+.table1{
+	margin-top: 1%;
+	margin-left: 2%;
+	font-size: .8em;
+	height: 85%;
+	width: 90%;
+  	border:1;
+  	border-width: 1px;
+  	border-color: #666666;
+  	border-collapse: collapse;
+}
+
+.tableBox1{
+	height: 20%;
+	width: 10%;
+}
+
+.table2{
+	margin-top: 1%;
+	margin-left: 2%;
+	font-size: .8em;
+	height: 85%;
+	width: 90%;
+  	border:1;
+  	border-width: 1px;
+  	border-color: #666666;
+  	
+}
+
+.tableBox2{
+	height: 20%;
+	width: 5%;
+}
+
+.output{
+	text-align: left;
+	margin-left: 3%;
+	margin-top: 5%;
+}
+
+.botmDivRight3{
+	text-align: left;
+	padding-left: 3%;
+	margin-top: 3%;
+}
+.variableDiv{
+	margin-top: 3%;
+}
+
+.list {
+  margin-top: 3%;
+  font-size: .85em;
+}
+
+.redClass{
+  display: block;
+  color: red;
+  font-weight: bold;
+}
