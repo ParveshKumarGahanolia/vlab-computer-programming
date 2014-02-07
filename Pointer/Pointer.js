@@ -1,4 +1,4 @@
-//	*name: JavaScript
+//	* name: JavaScript
 //  * author: Parvesh Kumar Gahanolia <parvesh@vlabs.ac.in>
 
 window.model = {
@@ -74,7 +74,7 @@ window.view = {
 
 	replaceElement: function (id1, id2) {
     	document.getElementById(id1).style.display = 'none';
-    	document.getElementById(id2).style.display = 'block';  	 
+    	document.getElementById(id2).style.display = 'block';
     },
 
     setString: function (id, value) {

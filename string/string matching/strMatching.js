@@ -1,5 +1,5 @@
-//	* name: JavaScript
-//  * author: Parvesh Kumar Gahanolia <parvesh@vlabs.ac.in>
+// Author: Parvesh Kumar Gahanolia 
+// Email: <parvesh@vlabs.ac.in>
 
 window.model = {
 	string1 : '',
@@ -30,6 +30,10 @@ window.view = {
 		this.addClickEvent('nextBtn', function() { view.nextButton() });
 		this.addClickEvent('strMatch', function() { view.showStrMatchExp() });
 		this.addClickEvent('strComp', function() { view.showStrComparExp() });
+	},
+
+	setValue: function (id, value) {
+		document.getElementById(id).value = value;
 	},
 
 	showStrMatchExp: function () {
@@ -226,6 +230,8 @@ window.view = {
 			{
 				this.setInnerHtml('outputStr', this.outputStrSM2);
 				alert('Code running is Over !');
+				this.setValue('str1', '');
+				this.setValue('str2', '');
 			}
 		}
 
@@ -322,6 +328,8 @@ window.view = {
 		else if (currentChildId === 'codeContentSM17') 
 		{
 			alert('Code running is Over !');
+			this.setValue('str1', '');
+			this.setValue('str2', '');
 		}
 
 		else if (currentChildId === 'codeContentSM19') 
@@ -331,6 +339,8 @@ window.view = {
 		}
 	},
 
+
+	/* To check text field restrictions*/
 	executionStartSC: function() {
 		model.string1 = this.getString('str1');
 		model.string2 = this.getString('str2');
@@ -342,12 +352,13 @@ window.view = {
 		this.applyColorClass(firstChildId, 'redClass');
 	},
 
+	/* */
 	executionNextSC: function() {
 		var classId = this.getClassId('redClass');
 		var currentChildId = this.getNextChildId(classId);
 		var previousChildId = this.getPreviousChildId(currentChildId);
 
-		if (currentChildId === 'codeContentSC2') 
+		if (currentChildId === 'codeContentSC2') 	// 
 		{
 			this.applyColorClass(currentChildId, 'redClass');
 			this.removeColorClass(previousChildId, 'redClass');
@@ -500,6 +511,8 @@ window.view = {
 			this.applyColorClass('codeContentSC19', 'redClass');
 			this.removeColorClass(previousChildId, 'redClass');
 			alert('Code running is Over !');
+			this.setValue('str1', '');
+			this.setValue('str2', '');
 		}
 	},
 
