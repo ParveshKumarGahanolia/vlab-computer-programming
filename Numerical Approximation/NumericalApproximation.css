@@ -1,0 +1,82 @@
+/*author: Parvesh Kumar Gahanolia
+email: parvesh@vlabs.ac.in*/
+
+* {
+  margin: 0; padding: 0;
+}
+
+body {
+  height: 100%;
+	position: absolute; top:0%; bottom:0%; right:0%; left:0%;
+	text-align: center;
+}
+
+.mainDiv {
+	position: absolute;
+	margin: 1%;
+	height: 96%;
+	width: 98%;
+}
+
+.headingDiv{
+	height: 8%;
+	border: 1px solid #969696;
+}
+
+.problemStatementDiv {
+	position: absolute;
+	margin-top: 1%;
+	height: 89%;
+	width: 21%;
+	border: 1px solid #969696;
+}
+
+.textAlignLeft{
+	text-align: left;
+}
+
+.codeDiv{
+	position: absolute;
+	margin-top: 1%;
+	margin-left: 22%;
+	height: 89%;
+	width: 35%;
+	border: 1px solid #969696;
+}
+
+.graphDiv{
+	position: absolute;
+	margin-top: 1%;
+	margin-left: 58%;
+	height: 89%;
+	width: 42%;
+	border: 1px solid #969696;
+}
+
+.programCode{
+	text-align: left;
+	font-size: 1em;
+	margin-top: 1%;
+	margin-left: 2%;
+	line-height: 200%;
+	font-size: 1.2em;
+}
+
+.graph{
+	margin-top: 4%;
+	height: 68%;
+	padding-top: 5%;
+	border-top: 1px solid #969696;
+	border-bottom: 1px solid #969696;
+}
+
+.redClass{
+  display: block;
+  color: red;
+  font-weight: bold;
+}
+
+h2 {
+	margin-top: 1%;
+}
+
