@@ -187,7 +187,7 @@ window.view = {
 	},
 	drawRectangle: function (xCoordinates, yCoordinates, width, high) {
 		this.canvasContext.beginPath();
-		this.canvasContext.globalAlpha= 0.7;
+		this.canvasContext.globalAlpha= 0.6;
 		this.canvasContext.fillStyle='#FF00FF';
 		this.canvasContext.fillRect(xCoordinates, yCoordinates, width, high);
 	},
@@ -206,13 +206,14 @@ window.view = {
  	incrementInXCoordinates: function () {
  		this.xCoordinatesValue = this.xCoordinatesValue + 12;
  	},
-	ToGetXYCoordinateValue: function () {
-		var y = 80*Math.cos(0 + (this.xCoordinatesValue - 20) * .0393);
-		this.yCoordinatesValue = 80 + (100 - (y));
-	},
 	callDrawRectangle: function () {
-		this.ToGetXYCoordinateValue();
-		this.drawRectangle(this.xCoordinatesValue, this.yCoordinatesValue, 4, 180 - this.yCoordinatesValue);
+		var dynamicValueOfX = this.xCoordinatesValue;
+		for (var i =0; i < 12; i++ ) {
+			dynamicValueOfX++;
+			var y = 80*Math.cos(0 + (dynamicValueOfX - 20) * .0393);
+			this.yCoordinatesValue = 80 + (100 - (y));
+			this.drawRectangle(dynamicValueOfX, this.yCoordinatesValue, 1, 180 - this.yCoordinatesValue);
+		}
 	},
 	drawCanvas: function () {
 		this.drawAxis();
