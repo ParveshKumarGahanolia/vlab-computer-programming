@@ -151,6 +151,8 @@ window.view = {
 	drawHorizontalLine: function () {
 		this.canvasContext.beginPath();
 		for (var i = 20; i <= 500; i+=40) {
+			if (i === 180)
+				continue;
 			this.canvasContext.moveTo(20, i);
 			this.canvasContext.lineTo(520, i);
 		}
