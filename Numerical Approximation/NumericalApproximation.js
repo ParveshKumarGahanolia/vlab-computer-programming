@@ -210,7 +210,7 @@ window.view = {
 	},
 	callDrawRectangle: function () {
 		this.ToGetXYCoordinateValue();
-		this.drawRectangle(this.xCoordinatesValue, this.yCoordinatesValue, 8, 180 - this.yCoordinatesValue);
+		this.drawRectangle(this.xCoordinatesValue, this.yCoordinatesValue, 4, 180 - this.yCoordinatesValue);
 	},
 	drawCanvas: function () {
 		this.drawAxis();
