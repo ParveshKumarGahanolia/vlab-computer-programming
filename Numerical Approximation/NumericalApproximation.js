@@ -2,88 +2,225 @@
 // Email: <parvesh@vlabs.ac.in>
 
 window.model = {
-	valueA: '',
-	valueB: '',
+	inputValueA: '',
+	inputValueB: '',
 	sum: 0,
-	i: 0,
 	width: 1,
 	computeSum: function () {
-    	this.sum = this.sum + Math.cos(2 * Math.PI/13 * this.valueA) * this.width;
+    	this.sum = this.sum + Math.cos(2 * Math.PI/13 * this.inputValueA) * this.width;
     },
-
     incrementInWidth: function () {
-    	this.valueA = this.valueA + this.width;
+    	this.inputValueA = this.inputValueA + this.width;
 	}
 }
 
 window.view = {
-
-	sum: '',
-	canvas: '',
-
+	xCoordinatesValue: 0,
+	yCoordinatesValue: 0,
+	sum: 0,
+	canvasContext: '',
+	canvas: new Object(),
+	currentSiblingElement: new Object(),
+	nextSiblingElement: new Object(),
 	addClickEvent: function (id, method) {
 		var element = document.getElementById(id);
 		element.addEventListener('click', method, false);
 	},
-
 	activateEvents: function () {
 		this.addClickEvent('okBtnId', function() { view.okButton() });
 		this.addClickEvent('startBtnId', function() { view.startButton() });
 		this.addClickEvent('nextBtnId', function() { view.nextButton() });
 		this.addClickEvent('stopBtnId', function() { view.stopButton() });
 	},
-
+	disableElement: function(Id) {
+		document.getElementById(Id).disabled = true;
+	},
+	enableElement: function(Id) {
+		document.getElementById(Id).disabled = false;
+	},
 	replaceElement: function (id1, id2) {
     	document.getElementById(id1).style.display = 'none';
-    	document.getElementById(id2).style.display = 'block';  	 
+    	document.getElementById(id2).style.display = 'block';
     },
-
-	applyColorClass: function (id, colorClass) {
-		var elementbyid = document.getElementById(id);
-		elementbyid.className += ' ' + colorClass;
+    applyColorClass: function (id, colorClass) {
+    	document.getElementById(id).classList.add(colorClass);
 	},
-
 	removeColorClass: function (id, colorClass) {
-		var elementbyid = document.getElementById(id);
-		elementbyid.classList.remove(colorClass);
+		document.getElementById(id).classList.remove(colorClass);
 	},
-
+	executionWithColour: function () {
+		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
+		this.applyColorClass(this.nextSiblingElement.id, 'redClass');
+	},
 	getValue: function (id) {
 		var value = document.getElementById(id).value;
 		return value;
 	},
-
-	getClassId: function (className) {
+	setValue: function (id, valueToSet) {
+		document.getElementById(id).value = valueToSet;
+	},
+	getElementByClass: function (className) {
 		var element = document.getElementsByClassName(className);
-		var classId = element[0].id;
-		return classId;		
+		return element[0];
 	},
-
-	getFirstChildId: function (id) {
-		var node = document.getElementById(id);
-		var allChild = node.childNodes;
-		var firstChildId = allChild[1].id;
-		return firstChildId;
+	getNextSiblingElement: function (element) {
+		var nextSiblingElement = element.nextSibling;
+		nextSiblingElement = nextSiblingElement.nextSibling;
+		return nextSiblingElement;
 	},
-
-	getNextChildId: function (id) {
-		var nextChild1 = document.getElementById(id).nextSibling;
-		var nextChild2 = nextChild1.nextSibling;
-		var nextChildId = nextChild2.id;
-		return nextChildId; 
-	},
-
-	getPreviousChildId: function (id) {
-		var previousChild1 = document.getElementById(id).previousSibling;
-		var previousChild2 = previousChild1.previousSibling;
-		var previousChildId = previousChild2.id;
-		return previousChildId;
-	},
-
 	setInnerHtml: function (id, innerHTML) {
  		document.getElementById(id).innerHTML = innerHTML;
  	},
-
+ 	resetVariables: function () {
+ 		model.inputValueA = '';
+		model.inputValueB = '';
+		this.xCoordinatesValue = 0;
+		this.yCoordinatesValue = 0;
+		model.sum = 0;
+		this.sum = 0;
+ 	},
+ 	resetTextFieldValue: function () {
+ 		this.setValue('valueA', '');
+ 		this.setValue('valueB', '');
+ 	},
+ 	atTheEndOfExecution: function () {
+		this.clearDivValues();
+		this.resetVariables();
+		this.resetTextFieldValue();
+		this.replaceElement('stopBtnId', 'startBtnId');
+		this.disableElement('nextBtnId');
+		this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		this.canvasContext.restore();
+		this.drawCanvas();
+		var idOfRedText = this.getElementByClass('redClass').id;
+		this.removeColorClass(idOfRedText, 'redClass');
+ 	},
+ 	clearDivValues: function () {
+ 		this.setInnerHtml('vari', '');
+ 		this.setInnerHtml('valuei', '');
+		this.setInnerHtml('valuesum', '');
+		this.setInnerHtml('varsum', '');
+ 		this.setInnerHtml('integrText', '');
+ 		this.setInnerHtml('integrValue', '');
+ 	},
+ 	getCanvas: function () {
+		this.canvas = document.getElementById('myCanvas');
+		this.canvasContext = this.canvas.getContext('2d');
+	}, 
+	drawAxis: function () {
+		this.getCanvas();
+		this.canvasContext.beginPath();
+		this.canvasContext.moveTo(20, 0);
+		this.canvasContext.lineTo(20, 360);
+		this.canvasContext.moveTo(20, 180);
+		this.canvasContext.lineTo(520, 180);
+		this.canvasContext.strokeStyle = '#000000';
+		this.canvasContext.lineWidth = 2;
+		this.canvasContext.stroke();
+	},
+	drawText: function () {
+		this.canvasContext.font = '18px Arial';
+		this.canvasContext.beginPath();
+		this.canvasContext.fillText('0', 8, 180);
+		this.canvasContext.fillText('1', 8, 100);
+		this.canvasContext.fillText('2', 8, 20);
+		this.canvasContext.fillText('1', 8, 260);
+		this.canvasContext.fillText('2', 8, 340);
+		this.canvasContext.fillText('5', 80, 200);
+		this.canvasContext.fillText('10', 140, 200);
+		this.canvasContext.fillText('15', 200, 200);
+		this.canvasContext.fillText('20', 260, 200);
+		this.canvasContext.fillText('25', 320, 200);
+		this.canvasContext.fillText('30', 380, 200);
+		this.canvasContext.fillText('35', 440, 200);
+		this.canvasContext.fillText('40', 500, 200);
+	},
+	drawIntersectLines: function () {
+		this.canvasContext.beginPath();
+		for (var i = 20; i <= 340; i+=80) {
+			this.canvasContext.moveTo(15, i);
+			this.canvasContext.lineTo(25, i);
+		}
+		for (var i = 80; i <= 500; i+=60) {
+			this.canvasContext.moveTo(i, 175);
+			this.canvasContext.lineTo(i, 185);
+		}
+		this.canvasContext.lineWidth = 2;
+		this.canvasContext.stroke();
+	},
+	drawHorizontalLine: function () {
+		this.canvasContext.beginPath();
+		for (var i = 20; i <= 500; i+=40) {
+			this.canvasContext.moveTo(20, i);
+			this.canvasContext.lineTo(520, i);
+		}
+		this.canvasContext.strokeStyle = '#3ADF00';
+		this.canvasContext.lineWidth = 1;
+		this.canvasContext.stroke();
+	},
+	drawVerticalLine: function () {
+		this.canvasContext.beginPath();
+		for (var i = 60; i <= 520; i+=40) {
+			this.canvasContext.moveTo(i, 0);
+			this.canvasContext.lineTo(i, 360);
+		}
+		this.canvasContext.strokeStyle = '#3ADF00';
+		this.canvasContext.lineWidth = 1;
+		this.canvasContext.stroke();
+	},
+	drawCosCurve: function () {
+		this.canvasContext.beginPath();
+		var xAxis;
+		var yAxis;
+		this.canvasContext.moveTo(20, 100);
+		for (xAxis = 20; xAxis <= 520; xAxis++) {
+			var y = 80*Math.cos(0 + (xAxis - 20) * .0393)
+			yAxis = 80 + (100 - (y))
+			this.canvasContext.lineTo(xAxis, yAxis);
+		}
+		this.canvasContext.strokeStyle = '#ff0000';
+		this.canvasContext.lineWidth = 2;
+    	this.canvasContext.stroke();
+    	this.canvasContext.save();
+	},
+	drawRectangle: function (xCoordinates, yCoordinates, width, high) {
+		this.canvasContext.beginPath();
+		this.canvasContext.globalAlpha= 0.7;
+		this.canvasContext.fillStyle='#FF00FF';
+		this.canvasContext.fillRect(xCoordinates, yCoordinates, width, high);
+	},
+	showAreaUnderCurve: function () {
+		model.computeSum();
+		this.callDrawRectangle();
+		this.incrementInXCoordinates();
+		model.incrementInWidth();
+		this.sum = Math.round(model.sum * 100) / 100;
+		this.setInnerHtml('valuesum', this.sum);
+		this.setInnerHtml('valuei', model.inputValueA);
+	},
+	calculateXCoordinates: function () {
+ 		this.xCoordinatesValue = 20 + 12 * model.inputValueA;
+ 	},
+ 	incrementInXCoordinates: function () {
+ 		this.xCoordinatesValue = this.xCoordinatesValue + 12;
+ 	},
+	ToGetXYCoordinateValue: function () {
+		var y = 80*Math.cos(0 + (this.xCoordinatesValue - 20) * .0393);
+		this.yCoordinatesValue = 80 + (100 - (y));
+	},
+	callDrawRectangle: function () {
+		this.ToGetXYCoordinateValue();
+		this.drawRectangle(this.xCoordinatesValue, this.yCoordinatesValue, 8, 180 - this.yCoordinatesValue);
+	},
+	drawCanvas: function () {
+		this.drawAxis();
+		this.drawText();
+		this.drawIntersectLines();
+		this.drawHorizontalLine();
+		this.drawVerticalLine();
+		this.drawCosCurve();
+		this.canvasContext.save();
+	},
 	okButton: function () {
 		var valueA1 = this.getValue('valueA');
 		var valueB1 = this.getValue('valueB');
@@ -102,186 +239,77 @@ window.view = {
 			return false;
 		}
 		else {
-			model.valueA = valueA2;
-			model.valueB = valueB2;
+			model.inputValueA = valueA2;
+			model.inputValueB = valueB2;
 		}
-		var firstChildId = this.getFirstChildId('NumApproCode');
-		this.applyColorClass(firstChildId, 'redClass');
+		this.applyColorClass('NumApproCodeContent1', 'redClass');
+		this.currentSiblingElement = this.getElementByClass('redClass');
+		this.enableElement('nextBtnId');
+		this.disableElement('okBtnId');
+		this.disableElement('valueA');
+		this.disableElement('valueB');
 	},
-
 	startButton: function () {
 		this.replaceElement('startBtnId', 'stopBtnId');
+		this.enableElement('valueA');
+		this.enableElement('valueB');
+		this.enableElement('okBtnId');
 	},
-
+	stopButton: function () {
+		this.replaceElement('stopBtnId', 'startBtnId');
+		this.disableElement('valueA');
+		this.disableElement('valueB');
+		this.disableElement('okBtnId');
+		this.disableElement('nextBtnId');
+		this.atTheEndOfExecution();
+	},
 	nextButton: function () {
-		var classId = this.getClassId('redClass');
-		var currentChildId = this.getNextChildId(classId);
-		var previousChildId = this.getPreviousChildId(currentChildId);
-		
-
-		if (currentChildId === 'NumApproCodeContent2') {
-			this.applyColorClass(currentChildId, 'redClass');
-			this.removeColorClass(previousChildId, 'redClass');
+		this.currentSiblingElement = this.getElementByClass('redClass');
+		this.nextSiblingElement = this.getNextSiblingElement(this.currentSiblingElement);
+		if (this.nextSiblingElement.id === 'NumApproCodeContent2') {
+			this.executionWithColour();
 			this.setInnerHtml('vari', 'i = ');
 		}
-
-		if (currentChildId === 'NumApproCodeContent3') {
-			this.applyColorClass(currentChildId, 'redClass');
-			this.removeColorClass(previousChildId, 'redClass');
+		else if (this.nextSiblingElement.id === 'NumApproCodeContent3') {
+			this.executionWithColour();
 			this.setInnerHtml('varsum', 'sum = ');
 		}
-
-		if (currentChildId === 'NumApproCodeContent4') {
-			this.applyColorClass(currentChildId, 'redClass');
-			this.removeColorClass(previousChildId, 'redClass');
+		else if (this.nextSiblingElement.id === 'NumApproCodeContent4') {
+			this.executionWithColour();
 		}
-
-		if (currentChildId === 'NumApproCodeContent5') {
-			this.applyColorClass(currentChildId, 'redClass');
-			this.removeColorClass(previousChildId, 'redClass');
+		else if (this.nextSiblingElement.id === 'NumApproCodeContent5') {
+			this.executionWithColour();
 			this.setInnerHtml('valuei', '0');
 			this.setInnerHtml('valuesum', '0');
 		}
-
-		if (currentChildId === 'NumApproCodeContent6') {
-			this.applyColorClass(currentChildId, 'redClass');
-			this.removeColorClass(previousChildId, 'redClass');
+		else if (this.nextSiblingElement.id === 'NumApproCodeContent6') {
+			this.executionWithColour();
+			this.calculateXCoordinates();
 		}
-
-		if (currentChildId === 'NumApproCodeContent7') {
-			this.applyColorClass(currentChildId, 'redClass');
-			this.removeColorClass(previousChildId, 'redClass');
-			model.computeSum();
-			model.incrementInWidth();
-			this.sum = Math.round(model.sum * 100) / 100;
-			this.setInnerHtml('valuesum', this.sum);
-			this.setInnerHtml('valuei', model.valueA);
+		else if (this.nextSiblingElement.id === 'NumApproCodeContent7') {
+			this.executionWithColour();
+			this.showAreaUnderCurve();
 		}
-
-		if (currentChildId === 'NumApproCodeContent8') {
-			this.applyColorClass(currentChildId, 'redClass');
-			this.removeColorClass(previousChildId, 'redClass');
+		else if (this.nextSiblingElement.id === 'NumApproCodeContent8') {
+			this.executionWithColour();
 		}
-
-		if (currentChildId === 'NumApproCodeContent9') {
-			if (model.valueA < model.valueB) {
+		else if (this.nextSiblingElement.id === 'NumApproCodeContent9') {
+			if (model.inputValueA < model.inputValueB) {
+				this.removeColorClass(this.currentSiblingElement.id, 'redClass');
 				this.applyColorClass('NumApproCodeContent6', 'redClass');
-				this.removeColorClass(previousChildId, 'redClass');
 			}
-			else if (model.valueA = model.valueB) {
-				this.applyColorClass(currentChildId, 'redClass');
-				this.removeColorClass(previousChildId, 'redClass');
+			else if (model.inputValueA = model.inputValueB) {
+				this.executionWithColour();
 				this.setInnerHtml('integrText', 'INTEGRATION VALUE = ');
 				this.setInnerHtml('integrValue', this.sum);
 			}
 		}
-
-		if (currentChildId === 'NumApproCodeContent10')	{
-			this.applyColorClass(currentChildId, 'redClass');
-			this.removeColorClass(previousChildId, 'redClass');
+		else if (this.nextSiblingElement.id === 'NumApproCodeContent10') {
+			this.executionWithColour();
 			alert('Code running is Over !');
+			this.atTheEndOfExecution();
 		}
 	},
-
-	stopButton: function () {
-		this.replaceElement('stopBtnId', 'startBtnId');
-	},
-
-	getCanvas: function () {
-		var canvas = document.getElementById('myCanvas').getContext('2d');
-		return canvas;
-	},
-
-	drawAxis: function () {
-		canvas = this.getCanvas();
-		canvas.beginPath();
-		canvas.moveTo(20, 0);
-		canvas.lineTo(20, 360);
-		canvas.moveTo(20, 180);
-		canvas.lineTo(520, 180);
-		canvas.strokeStyle = '#000000';
-		canvas.lineWidth = 2;
-		canvas.stroke();
-	},
-
-	drawText: function () {
-		canvas.font = '18px Arial';
-		canvas.beginPath();
-		canvas.fillText('0', 8, 180);
-		canvas.fillText('1', 8, 100);
-		canvas.fillText('2', 8, 20);
-		canvas.fillText('1', 8, 260);
-		canvas.fillText('2', 8, 340);
-		canvas.fillText('5', 80, 200);
-		canvas.fillText('10', 140, 200);
-		canvas.fillText('15', 200, 200);
-		canvas.fillText('20', 260, 200);
-		canvas.fillText('25', 320, 200);
-		canvas.fillText('30', 380, 200);
-		canvas.fillText('35', 440, 200);
-		canvas.fillText('40', 500, 200);
-	},
-
-	drawIntersectLines: function () {
-		canvas.beginPath();
-		for (var i = 20; i <= 340; i+=80) {
-			canvas.moveTo(15, i);
-			canvas.lineTo(25, i);
-		}
-		for (var i = 80; i <= 500; i+=60) {
-			canvas.moveTo(i, 175);
-			canvas.lineTo(i, 185);
-		}
-		canvas.lineWidth = 2;
-		canvas.stroke();
-	},
-
-	drawCosCurve: function () {
-		canvas.beginPath();
-		var xAxis;
-		var yAxis;
-		canvas.moveTo(20, 100);
-		for (xAxis = 20; xAxis <= 520; xAxis++) {
-			var y = 80*Math.cos(0 + (xAxis - 20) * .03275)
-			yAxis = 80 + (100 - (y))
-			canvas.lineTo(xAxis, yAxis);
-		}
-		canvas.strokeStyle = '#ff0000';
-		canvas.lineWidth = 2;
-    	canvas.stroke();
-	},
-
-	drawHorizontalLine: function () {
-		canvas.beginPath();
-		for (var i = 20; i <= 500; i+=40) {
-			canvas.moveTo(20, i);
-			canvas.lineTo(520, i);
-		}
-		canvas.strokeStyle = '#3ADF00';
-		canvas.lineWidth = 1;
-		canvas.stroke();
-	},
-
-	drawVerticalLine: function () {
-		canvas.beginPath();
-		for (var i = 60; i <= 520; i+=40) {
-			canvas.moveTo(i, 0);
-			canvas.lineTo(i, 360);
-		}
-		canvas.strokeStyle = '#3ADF00';
-		canvas.lineWidth = 1;
-		canvas.stroke();
-	}, 
-
-	drawCanvas: function () {
-		this.drawAxis();
-		this.drawText();
-		this.drawIntersectLines();
-		this.drawHorizontalLine();
-		this.drawVerticalLine();
-		this.drawCosCurve();
-	},
-
 	init: function () {
 		this.drawCanvas();
 		this.activateEvents();
