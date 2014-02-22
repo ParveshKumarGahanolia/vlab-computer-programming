@@ -182,8 +182,8 @@ window.view = {
 		}
 		this.canvasContext.strokeStyle = '#ff0000';
 		this.canvasContext.lineWidth = 2;
-    	this.canvasContext.stroke();
-    	this.canvasContext.save();
+		this.canvasContext.stroke();
+		this.canvasContext.save();
 	},
 	drawRectangle: function (xCoordinates, yCoordinates, width, high) {
 		this.canvasContext.beginPath();
@@ -208,7 +208,7 @@ window.view = {
  	},
 	callDrawRectangle: function () {
 		var dynamicValueOfX = this.xCoordinatesValue;
-		for (var i =0; i < 12; i++ ) {
+		for (var i =0; i < 12; i++) {
 			dynamicValueOfX++;
 			var y = 80*Math.cos(0 + (dynamicValueOfX - 20) * .0393);
 			this.yCoordinatesValue = 80 + (100 - (y));
