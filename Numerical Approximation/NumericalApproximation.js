@@ -42,7 +42,7 @@ window.view = {
 	replaceElement: function (id1, id2) {
 		document.getElementById(id1).style.display = 'none';
 		document.getElementById(id2).style.display = 'block';
-    },
+	},
     applyColorClass: function (id, colorClass) {
 		document.getElementById(id).classList.add(colorClass);
 	},
