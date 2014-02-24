@@ -8,7 +8,7 @@ window.model = {
 	width: 1,
 	computeSum: function () {
     	this.sum = this.sum + Math.cos(2 * Math.PI/13 * this.inputValueA) * this.width;
-    },
+	},
     incrementInWidth: function () {
     	this.inputValueA = this.inputValueA + this.width;
 	}
