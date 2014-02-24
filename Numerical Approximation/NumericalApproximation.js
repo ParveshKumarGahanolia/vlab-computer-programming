@@ -8,7 +8,7 @@ window.model = {
 	width: 1,
 	computeSum: function () {
     	this.sum = this.sum + Math.cos(2 * Math.PI/13 * this.inputValueA) * this.width;
-	},
+    },
     incrementInWidth: function () {
     	this.inputValueA = this.inputValueA + this.width;
 	}
@@ -28,10 +28,10 @@ window.view = {
 		element.addEventListener('click', method, false);
 	},
 	activateEvents: function () {
-		this.addClickEvent('okBtnId', function() { view.okButton() });
-		this.addClickEvent('startBtnId', function() { view.startButton() });
-		this.addClickEvent('nextBtnId', function() { view.nextButton() });
-		this.addClickEvent('stopBtnId', function() { view.stopButton() });
+		this.addClickEvent('okBtnId', function() { view.validationInput() });
+		this.addClickEvent('startBtnId', function() { view.startExperiment() });
+		this.addClickEvent('nextBtnId', function() { view.plotCurveArea() });
+		this.addClickEvent('stopBtnId', function() { view.stopExperiment() });
 	},
 	disableElement: function(Id) {
 		document.getElementById(Id).disabled = true;
@@ -42,7 +42,7 @@ window.view = {
 	replaceElement: function (id1, id2) {
 		document.getElementById(id1).style.display = 'none';
 		document.getElementById(id2).style.display = 'block';
-	},
+    },
     applyColorClass: function (id, colorClass) {
 		document.getElementById(id).classList.add(colorClass);
 	},
@@ -222,7 +222,7 @@ window.view = {
 		this.drawCosCurve();
 		this.canvasContext.save();
 	},
-	okButton: function () {
+	validationInput: function () {
 		var valueA1 = this.getValue('valueA');
 		var valueB1 = this.getValue('valueB');
 		var valueA2 = parseInt(valueA1);
@@ -250,13 +250,13 @@ window.view = {
 		this.disableElement('valueA');
 		this.disableElement('valueB');
 	},
-	startButton: function () {
+	startExperiment: function () {
 		this.replaceElement('startBtnId', 'stopBtnId');
 		this.enableElement('valueA');
 		this.enableElement('valueB');
 		this.enableElement('okBtnId');
 	},
-	stopButton: function () {
+	stopExperiment: function () {
 		this.replaceElement('stopBtnId', 'startBtnId');
 		this.disableElement('valueA');
 		this.disableElement('valueB');
@@ -264,7 +264,7 @@ window.view = {
 		this.disableElement('nextBtnId');
 		this.atTheEndOfExecution();
 	},
-	nextButton: function () {
+	plotCurveArea: function () {
 		this.currentSiblingElement = this.getElementByClass('redClass');
 		this.nextSiblingElement = this.getNextSiblingElement(this.currentSiblingElement);
 		if (this.nextSiblingElement.id === 'NumApproCodeContent2') {
