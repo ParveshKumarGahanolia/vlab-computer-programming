@@ -15,6 +15,7 @@ window.model = {
 }
 
 window.view = {
+	wavelengthController: .0393,
 	xCoordinatesValue: 0,
 	yCoordinatesValue: 0,
 	sum: 0,
@@ -126,35 +127,32 @@ window.view = {
 		this.canvasContext.fillText('2', 8, 20);
 		this.canvasContext.fillText('1', 8, 260);
 		this.canvasContext.fillText('2', 8, 340);
-		this.canvasContext.fillText('5', 80, 200);
-		this.canvasContext.fillText('10', 140, 200);
-		this.canvasContext.fillText('15', 200, 200);
-		this.canvasContext.fillText('20', 260, 200);
-		this.canvasContext.fillText('25', 320, 200);
-		this.canvasContext.fillText('30', 380, 200);
-		this.canvasContext.fillText('35', 440, 200);
-		this.canvasContext.fillText('40', 500, 200);
+		var value = 5;
+		for (var position = 80; position <= 500; position += 60) {
+			this.canvasContext.fillText(value, position, 200);
+			value += 5;
+		}
 	},
 	drawIntersectLines: function () {
 		this.canvasContext.beginPath();
-		for (var i = 20; i <= 340; i+=80) {
-			this.canvasContext.moveTo(15, i);
-			this.canvasContext.lineTo(25, i);
+		for (var position = 20; position <= 340; position += 80) {
+			this.canvasContext.moveTo(15, position);
+			this.canvasContext.lineTo(25, position);
 		}
-		for (var i = 80; i <= 500; i+=60) {
-			this.canvasContext.moveTo(i, 175);
-			this.canvasContext.lineTo(i, 185);
+		for (var position = 80; position <= 500; position += 60) {
+			this.canvasContext.moveTo(position, 175);
+			this.canvasContext.lineTo(position, 185);
 		}
 		this.canvasContext.lineWidth = 2;
 		this.canvasContext.stroke();
 	},
 	drawHorizontalLine: function () {
 		this.canvasContext.beginPath();
-		for (var i = 20; i <= 500; i+=40) {
-			if (i === 180)
+		for (var position = 20; position <= 500; position += 40) {
+			if (position === 180)
 				continue;
-			this.canvasContext.moveTo(20, i);
-			this.canvasContext.lineTo(520, i);
+			this.canvasContext.moveTo(20, position);
+			this.canvasContext.lineTo(520, position);
 		}
 		this.canvasContext.strokeStyle = '#3ADF00';
 		this.canvasContext.lineWidth = 1;
@@ -162,9 +160,9 @@ window.view = {
 	},
 	drawVerticalLine: function () {
 		this.canvasContext.beginPath();
-		for (var i = 60; i <= 520; i+=40) {
-			this.canvasContext.moveTo(i, 0);
-			this.canvasContext.lineTo(i, 360);
+		for (var position = 60; position <= 520; position += 40) {
+			this.canvasContext.moveTo(position, 0);
+			this.canvasContext.lineTo(position, 360);
 		}
 		this.canvasContext.strokeStyle = '#3ADF00';
 		this.canvasContext.lineWidth = 1;
@@ -176,9 +174,9 @@ window.view = {
 		var yAxis;
 		this.canvasContext.moveTo(20, 100);
 		for (xAxis = 20; xAxis <= 520; xAxis++) {
-			var y = 80*Math.cos(0 + (xAxis - 20) * .0393)
+			var y = 80*Math.cos(0 + (xAxis - 20) * this.wavelengthController)
 			yAxis = 80 + (100 - (y))
-			this.canvasContext.lineTo(xAxis, yAxis);
+			this.canvasContext.lineTo(xAxis, yAxis)
 		}
 		this.canvasContext.strokeStyle = '#ff0000';
 		this.canvasContext.lineWidth = 2;
@@ -208,9 +206,9 @@ window.view = {
  	},
 	callDrawRectangle: function () {
 		var dynamicValueOfX = this.xCoordinatesValue;
-		for (var i =0; i < 12; i++) {
+		for (var i = 0; i < 12; i++) {
 			dynamicValueOfX++;
-			var y = 80*Math.cos(0 + (dynamicValueOfX - 20) * .0393);
+			var y = 80*Math.cos(0 + (dynamicValueOfX - 20) * this.wavelengthController);
 			this.yCoordinatesValue = 80 + (100 - (y));
 			this.drawRectangle(dynamicValueOfX, this.yCoordinatesValue, 1, 180 - this.yCoordinatesValue);
 		}
