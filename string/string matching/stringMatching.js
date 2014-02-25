@@ -101,7 +101,7 @@ window.view = {
 				document.getElementById(id).rows[0].cells[i].innerHTML = string[i];
 			}
 			else if ( i === string.length ) {
-			document.getElementById(id).rows[0].cells[i].innerHTML = '/0';
+				document.getElementById(id).rows[0].cells[i].innerHTML = '/0';
 			}
 		}
 	},
