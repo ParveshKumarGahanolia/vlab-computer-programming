@@ -42,10 +42,10 @@ window.view = {
 		document.getElementById(id).classList.remove(colorClass);
 	},
 	replaceElement: function (id1, id2) {
-    	document.getElementById(id1).style.display = 'none';
-    	document.getElementById(id2).style.display = 'block';  	 
-    },
- 	getString: function (id) {
+		document.getElementById(id1).style.display = 'none';
+		document.getElementById(id2).style.display = 'block';  	 
+	},
+	getString: function (id) {
 		var string = document.getElementById(id).value;
 		return string;
 	},
@@ -96,51 +96,51 @@ window.view = {
 		this.endOfExecution();
 	},
 	setStringInTable: function (id, string) {
-    	for (var i = 0; i <= string.length; ++i) {
-    		if ( i < string.length ) {
-        		document.getElementById(id).rows[0].cells[i].innerHTML = string[i];
-        	}
-        	else if ( i === string.length ) {
-        		document.getElementById(id).rows[0].cells[i].innerHTML = '/0';
-        	}
-    	}
- 	},
- 	clearStringTable: function (id) {
- 		var tableLength = document.getElementById(id).rows[0].cells.length;
- 		for (var i = 0; i <= tableLength; ++i) {
-    		if ( i < tableLength ) {
-        		document.getElementById(id).rows[0].cells[i].innerHTML = '';
-        	}
-        	else if ( i === tableLength ) {
-        		document.getElementById(id).rows[0].cells[0].innerHTML = '/0';
-        	}
-        }
- 	},
- 	clearVariableTable: function (id) {
- 		var tableLength = document.getElementById(id).rows[0].cells.length;
- 		for (var i = 0; i <= tableLength; ++i) {
-    		if ( i < tableLength ) {
-        		document.getElementById(id).rows[0].cells[i].innerHTML = '';
-        	}
-        }
- 	},
- 	resetTable: function () {
- 		this.clearStringTable('memoryMap1');
- 		this.clearVariableTable('variableMap1');
- 		this.clearStringTable('memoryMap2');
- 		this.clearVariableTable('variableMap2');
- 	},
- 	showVariables: function (id, variable, value) {
- 		document.getElementById(id).rows[0].cells[variable].innerHTML = value;
- 	},
- 	hideVariables: function (id, variable) {
- 		document.getElementById(id).rows[0].cells[variable].innerHTML = '';
- 	},
- 	setInnerHtml: function (id, innerHTML) {
- 		document.getElementById(id).innerHTML = innerHTML;
- 	},
- 	resetVariablesAtEnd: function () {
- 		this.i = 0;
+		for (var i = 0; i <= string.length; ++i) {
+			if ( i < string.length ) {
+				document.getElementById(id).rows[0].cells[i].innerHTML = string[i];
+			}
+			else if ( i === string.length ) {
+			document.getElementById(id).rows[0].cells[i].innerHTML = '/0';
+			}
+		}
+	},
+	clearStringTable: function (id) {
+		var tableLength = document.getElementById(id).rows[0].cells.length;
+		for (var i = 0; i <= tableLength; ++i) {
+			if ( i < tableLength ) {
+				document.getElementById(id).rows[0].cells[i].innerHTML = '';
+			}
+			else if ( i === tableLength ) {
+				document.getElementById(id).rows[0].cells[0].innerHTML = '/0';
+			}
+		}
+	},
+	clearVariableTable: function (id) {
+		var tableLength = document.getElementById(id).rows[0].cells.length;
+		for (var i = 0; i <= tableLength; ++i) {
+			if ( i < tableLength ) {
+				document.getElementById(id).rows[0].cells[i].innerHTML = '';
+			}
+		}
+	},
+	resetTable: function () {
+		this.clearStringTable('memoryMap1');
+		this.clearVariableTable('variableMap1');
+		this.clearStringTable('memoryMap2');
+		this.clearVariableTable('variableMap2');
+	},
+	showVariables: function (id, variable, value) {
+		document.getElementById(id).rows[0].cells[variable].innerHTML = value;
+	},
+	hideVariables: function (id, variable) {
+		document.getElementById(id).rows[0].cells[variable].innerHTML = '';
+	},
+	setInnerHtml: function (id, innerHTML) {
+		document.getElementById(id).innerHTML = innerHTML;
+	},
+	resetVariablesAtEnd: function () {
+		this.i = 0;
 		this.k = 1;	
 		this.j = 0;
 		this.s1i = 0;
@@ -148,23 +148,23 @@ window.view = {
 		this.s2j = 0;
 		model.inputString1 = '';
 		model.inputString2 = '';
- 	},
- 	resetButtonAndTextField: function () {
- 		this.replaceElement('stopBtnId', 'startBtnId');
+	},
+	resetButtonAndTextField: function () {
+		this.replaceElement('stopBtnId', 'startBtnId');
 		this.disableElement('str1Id');
 		this.disableElement('str2Id');
 		this.disableElement('okBtnId');
 		this.disableElement('nextBtnId');
- 	},
- 	endOfExecution: function () {
- 		this.resetVariablesAtEnd();
+	},
+	endOfExecution: function () {
+		this.resetVariablesAtEnd();
 		this.resetStrings();
 		this.resetButtonAndTextField();
 		this.resetTable();
 		var idOfRedText = this.getElementByClass('redClass').id;
 		this.removeColorClass(idOfRedText, 'redClass');
 	},
- 	codeExecutionWithColour: function () {
+	codeExecutionWithColour: function () {
 		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
 		this.applyColorClass(this.nextSiblingElement.id, 'redClass');
 	},
