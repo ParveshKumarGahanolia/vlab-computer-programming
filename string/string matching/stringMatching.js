@@ -83,14 +83,17 @@ window.view = {
 			alert('Maximum String Size allowed is Seven, Minimum Size is One and size of str2 should be less than equal to size of str1');
 			return false;
 		}
-		this.applyColorClass('codeContentId1', 'redClass');
-		this.enableElement('nextBtnId');
+		this.enableElement('startBtnId');
+		this.disableElement('okBtnId');
+		this.disableElement('str1Id');
+		this.disableElement('str2Id');
 	},
 	startExperiment: function () {
 		this.replaceElement('startBtnId', 'stopBtnId');
-		this.enableElement('str1Id');
-		this.enableElement('str2Id');
-		this.enableElement('okBtnId');
+		this.enableElement('stopBtnId');
+		this.enableElement('nextBtnId');
+		this.disableElement('startBtnId');
+		this.applyColorClass('codeContentId1', 'redClass');
 	},
 	stopExperiment: function () {
 		this.endOfExecution();
@@ -151,10 +154,11 @@ window.view = {
 	},
 	resetButtonAndTextField: function () {
 		this.replaceElement('stopBtnId', 'startBtnId');
-		this.disableElement('str1Id');
-		this.disableElement('str2Id');
-		this.disableElement('okBtnId');
+		this.enableElement('str1Id');
+		this.enableElement('str2Id');
+		this.enableElement('okBtnId');
 		this.disableElement('nextBtnId');
+		this.disableElement('stopBtnId');
 	},
 	endOfExecution: function () {
 		this.resetVariablesAtEnd();
