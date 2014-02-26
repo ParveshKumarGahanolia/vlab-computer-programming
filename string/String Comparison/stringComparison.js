@@ -6,11 +6,9 @@ window.model = {
 }
 
 window.view = {
-	i: 0,	
-	k: 1,	
+	i: 0,		
 	j: 0,	
 	s1i: 0,
-	s1k: 0,
 	s2j: 0,
 	currentSiblingElement: new Object(),
 	nextSiblingElement: new Object(),
@@ -181,14 +179,11 @@ window.view = {
 		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
 		this.s1i = this.s1i + 1;
 		this.s2j = this.s2j + 1;
-
 		this.setInnerHtml('iValue', this.s1i);
 		this.setInnerHtml('jValue', this.s2j);
-
 		this.hideVariables('variableMap1', this.i);
 		this.i = this.i + 2;
 		this.showVariables('variableMap1', this.i, 'i');
-
 		this.hideVariables('variableMap2', this.j);
 		this.j = this.j + 2;
 		this.showVariables('variableMap2', this.j, 'j');
