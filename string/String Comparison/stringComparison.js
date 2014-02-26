@@ -160,6 +160,10 @@ window.view = {
 		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
 		this.applyColorClass(this.nextSiblingElement.id, 'redClass');
 	},
+	codeExecutionWithColourAndId: function (id) {
+		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
+		this.applyColorClass(id, 'redClass');
+	},
 	showVariablesij: function () {
 		this.setInnerHtml('iVariable', 'i = ');
 		this.setInnerHtml('jVariable', 'j = ');
@@ -175,8 +179,7 @@ window.view = {
 		this.showVariables('variableMap2', this.j, 'j');
 	},
 	incrementInVariableValue: function () {
-		this.applyColorClass('codeContentSC11', 'redClass');
-		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
+		this.codeExecutionWithColourAndId('codeContentSC11');
 		this.s1i = this.s1i + 1;
 		this.s2j = this.s2j + 1;
 		this.setInnerHtml('iValue', this.s1i);
@@ -208,22 +211,16 @@ window.view = {
 		else if (this.nextSiblingElement.id === 'codeContentSC7') {
 			if (this.s1i < model.inputString1.length && this.s2j < model.inputString2.length)
 				this.codeExecutionWithColour();
-			else if (this.s1i === model.inputString1.length && this.s2j === model.inputString2.length) {
-				this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-				this.applyColorClass('codeContentSC13', 'redClass');
-			}
-			else if (this.s2j === model.inputString2.length && this.s1i < model.inputString1.length || this.s1i === model.inputString1.length && this.s2j < model.inputString2.length) {
-				this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-				this.applyColorClass('codeContentSC13', 'redClass');
-			}
+			else if (this.s1i === model.inputString1.length && this.s2j === model.inputString2.length)
+				this.codeExecutionWithColourAndId('codeContentSC13');
+			else if (this.s2j === model.inputString2.length && this.s1i < model.inputString1.length || this.s1i === model.inputString1.length && this.s2j < model.inputString2.length)
+				this.codeExecutionWithColourAndId('codeContentSC13');
 		}
 		else if (this.nextSiblingElement.id === 'codeContentSC8') {
 			if (model.inputString1[this.s1i] > model.inputString2[this.s2j]) 
 				this.codeExecutionWithColour();
-			else {
-				this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-				this.applyColorClass('codeContentSC9', 'redClass');
-			}	
+			else
+				this.codeExecutionWithColourAndId('codeContentSC9');
 		}
 		else if (this.nextSiblingElement.id === 'codeContentSC10') {
 			if (model.inputString1[this.s1i] < model.inputString2[this.s2j]) 
@@ -231,19 +228,13 @@ window.view = {
 			else 
 				this.incrementInVariableValue();
 		}
-		else if (this.nextSiblingElement.id === 'codeContentSC12') {
-			this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-			this.applyColorClass('codeContentSC6', 'redClass');
-		}
-		else if (this.nextSiblingElement.id === 'codeContentSC9' || this.nextSiblingElement.id === 'codeContentSC11') {
-			this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-			this.applyColorClass('codeContentSC13', 'redClass');
-		}
+		else if (this.nextSiblingElement.id === 'codeContentSC12')
+			this.codeExecutionWithColourAndId('codeContentSC6');
+		else if (this.nextSiblingElement.id === 'codeContentSC9' || this.nextSiblingElement.id === 'codeContentSC11')
+			this.codeExecutionWithColourAndId('codeContentSC13');
 		else if (this.nextSiblingElement.id === 'codeContentSC14') {
-			if (model.inputString1[this.s1i] > model.inputString2[this.s2j] || model.inputString1[this.s1i] < model.inputString2[this.s2j] || this.s2j === model.inputString2.length && this.s1i < model.inputString1.length || this.s1i === model.inputString1.length && this.s2j < model.inputString2.length)	{
-				this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-				this.applyColorClass('codeContentSC15', 'redClass');
-			}
+			if (model.inputString1[this.s1i] > model.inputString2[this.s2j] || model.inputString1[this.s1i] < model.inputString2[this.s2j] || this.s2j === model.inputString2.length && this.s1i < model.inputString1.length || this.s1i === model.inputString1.length && this.s2j < model.inputString2.length)
+				this.codeExecutionWithColourAndId('codeContentSC15');
 			else if (model.inputString1[this.s1i] === model.inputString2[this.s2j]) {
 				this.codeExecutionWithColour();
 				this.setInnerHtml('outputStr', this.outputStrSC1);
@@ -254,18 +245,15 @@ window.view = {
 				this.codeExecutionWithColour();
 				this.setInnerHtml('outputStr', this.outputStrSC2);
 			}
-			else if (model.inputString1[this.s1i] < model.inputString2[this.s2j] || this.s1i === model.inputString1.length && this.s2j < model.inputString2.length) {
-				this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-				this.applyColorClass('codeContentSC17', 'redClass');
-			}
+			else if (model.inputString1[this.s1i] < model.inputString2[this.s2j] || this.s1i === model.inputString1.length && this.s2j < model.inputString2.length)
+				this.codeExecutionWithColourAndId('codeContentSC17');
 		}
 		else if (this.nextSiblingElement.id === 'codeContentSC18') {
 			this.codeExecutionWithColour();
 			this.setInnerHtml('outputStr', this.outputStrSC3);
 		}
 		else if (this.nextSiblingElement.id === 'codeContentSC17' || this.nextSiblingElement.id === 'codeContentSC19' || this.nextSiblingElement.id === 'codeContentSC15') {
-			this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-			this.applyColorClass('codeContentSC19', 'redClass');
+			this.codeExecutionWithColourAndId('codeContentSC19');
 			alert('Code running is Over !');
 			this.endOfExecution();
 		}
