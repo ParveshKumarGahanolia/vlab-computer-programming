@@ -31,6 +31,9 @@ window.view = {
 	enableElement: function(Id) {
 		document.getElementById(Id).disabled = false;
 	},
+	changeClass: function(id, className) {
+		document.getElementById(id).className = className
+	},
 	applyColorClass: function (id, colorClass) {
 		document.getElementById(id).classList.add(colorClass);
 	},
@@ -77,6 +80,8 @@ window.view = {
 		this.disableElement('okBtnId');
 		this.disableElement('str1Id');
 		this.disableElement('str2Id');
+		this.changeClass('okBtnId', 'buttonDisable startButton');
+		this.changeClass('startBtnId', 'button myStartButton');
 	},
 	startExperiment: function () {
 		this.replaceElement('startBtnId', 'stopBtnId');
@@ -84,6 +89,9 @@ window.view = {
 		this.enableElement('nextBtnId');
 		this.disableElement('startBtnId');
 		this.applyColorClass('codeContentSC1', 'redClass');
+		this.changeClass('startBtnId', 'myStartButton button');
+		this.changeClass('stopBtnId', 'myStartButton button');
+		this.changeClass('nextBtnId', 'nextButton button');
 	},
 	stopExperiment: function () {
 		this.endOfExecution();
@@ -147,6 +155,10 @@ window.view = {
 		this.enableElement('okBtnId');
 		this.disableElement('nextBtnId');
 		this.disableElement('stopBtnId');
+		this.changeClass('okBtnId', 'button startButton');
+		this.changeClass('startBtnId', 'buttonDisable myStartButton');
+		this.changeClass('stopBtnId', 'buttonDisable startButton');
+		this.changeClass('nextBtnId', 'buttonDisable nextButton');
 	},
 	endOfExecution: function () {
 		this.resetVariablesAtEnd();

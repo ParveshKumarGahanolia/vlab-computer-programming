@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<div id="headerSimpleLoop">String Comparison</div>
+<div id="header">String Comparison</div>
 <div class="vlabsIcon"></div>
 <div id="mainBody">
 
@@ -24,8 +24,8 @@
 
 			
 		   
-			<div class="warningText">Given Two strings str1 and str2, Find out the relationship between the strings str2 and str1 ?</div>
-		<div class="warningText">Initailize the value of str1 and str2 in below given section.</div>
+			<div class="warningText">1. Given Two strings str1 and str2, Find out the relationship between the strings str2 and str1 ?</div>
+		<div class="warningText">2. Initailize the value of str1 and str2 in below given section.</div>
 
 		
 
@@ -48,9 +48,9 @@
 			<div class="startButtonDivision"><button href="#" class="button startButton" id = "okBtnId" >OK</button></div>
 
 			<div class="buttonHolder">
-			 	<button class="button myStartButton" id="startBtnId"  disabled>Start</button>
-			 	<button class="button myStartButton hide" id = "stopBtnId" disabled>Stop</button>
-			 	<button id = "nextBtnId" class="button nextButton" disabled>Next</button>
+			 	<button class="buttonDisable myStartButton" id="startBtnId"  disabled>Start</button>
+			 	<button class="buttonDisable myStartButton hide" id = "stopBtnId" disabled>Stop</button>
+			 	<button id = "nextBtnId" class="buttonDisable nextButton" disabled>Next</button>
 			 </div>
 		
 
@@ -72,26 +72,26 @@
 		<div class="stepExecutionDisplay" >
 			
 
-			<div id='strComparCode' class='programCode'>
-				<div id='codeContentSC1'>1 main(){</div>
-				<div id='codeContentSC2'>2&emsp;&emsp;char str1[100], str2[100];</div>
-				<div id='codeContentSC3'>3&emsp;&emsp;int i, j;</div>
-				<div id='codeContentSC4'>4&emsp;&emsp;scanf( "%s%s", str1, str2 );</div>
-				<div id='codeContentSC5'>5&emsp;&emsp;i = 0; j = 0;</div>
-				<div id='codeContentSC6'>6&emsp;&emsp;while ( str1[i] != 0 && str2[j] !=0){</div>
-				<div id='codeContentSC7'>7&emsp;&emsp;&emsp;&emsp;if ( str1[i] > str2[j] ){</div>
-				<div id='codeContentSC8'>8&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;break; }</div>
-				<div id='codeContentSC9'>9&emsp;&emsp;&emsp;&emsp;else if ( str2[j] > str1[i] ){</div>
-				<div id='codeContentSC10'>10&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;break; }</div>
-				<div id='codeContentSC11'>11&emsp;&emsp;&emsp;&emsp;i++; j++;</div>
-				<div id='codeContentSC12'>12&emsp;&emsp;}</div>
-				<div id='codeContentSC13'>13&emsp;&emsp;if ( str1[i] == 0 && str2[j] == 0 ){</div>
-				<div id='codeContentSC14'>14&emsp;&emsp;&emsp;&emsp;printf("Strings str2 and str1 are same.\n"); }</div>
-				<div id='codeContentSC15'>15&emsp;&emsp;else if ( str1[i] > str2[j] ){</div>
-				<div id='codeContentSC16'>16&emsp;&emsp;&emsp;&emsp;printf("String str1 is greater than str2.\n"); }</div>
-				<div id='codeContentSC17'>17&emsp;&emsp;else {</div>
-				<div id='codeContentSC18'>18&emsp;&emsp;&emsp;&emsp;printf("String str2 is greater than str1.\n"); }</div>
-				<div id='codeContentSC19'>19 }</div>
+			<div id='strMatchCode' class='programCode'>
+				<div id='codeContentSC1'>main(){</div>
+				<div id='codeContentSC2'>&emsp;&emsp;char str1[100], str2[100];</div>
+				<div id='codeContentSC3'>&emsp;&emsp;int i, j;</div>
+				<div id='codeContentSC4'>&emsp;&emsp;scanf( "%s%s", str1, str2 );</div>
+				<div id='codeContentSC5'>&emsp;&emsp;i = 0; j = 0;</div>
+				<div id='codeContentSC6'>&emsp;&emsp;while ( str1[i] != 0 && str2[j] !=0){</div>
+				<div id='codeContentSC7'>&emsp;&emsp;&emsp;&emsp;if ( str1[i] > str2[j] ){</div>
+				<div id='codeContentSC8'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;break; }</div>
+				<div id='codeContentSC9'>&emsp;&emsp;&emsp;&emsp;else if ( str2[j] > str1[i] ){</div>
+				<div id='codeContentSC10'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;break; }</div>
+				<div id='codeContentSC11'>&emsp;&emsp;&emsp;&emsp;i++; j++;</div>
+				<div id='codeContentSC12'>&emsp;&emsp;}</div>
+				<div id='codeContentSC13'>&emsp;&emsp;if ( str1[i] == 0 && str2[j] == 0 ){</div>
+				<div id='codeContentSC14'>&emsp;&emsp;&emsp;&emsp;printf("Strings str2 and str1 are same.\n"); }</div>
+				<div id='codeContentSC15'>&emsp;&emsp;else if ( str1[i] > str2[j] ){</div>
+				<div id='codeContentSC16'>&emsp;&emsp;&emsp;&emsp;printf("String str1 is greater than str2.\n"); }</div>
+				<div id='codeContentSC17'>&emsp;&emsp;else {</div>
+				<div id='codeContentSC18'>&emsp;&emsp;&emsp;&emsp;printf("String str2 is greater than str1.\n"); }</div>
+				<div id='codeContentSC19'>}</div>
 			</div>
 
 
@@ -123,7 +123,7 @@
 
 
 				<div class='tableDiv'>
-					<table id='variableMap1' class='table2' border='1'>
+					<table id='variableMap1' class='table2'>
 						<tr>
    							<td class='tableBox2'></td>
    							<td class='tableBox2'></td>
@@ -163,7 +163,7 @@
 					</table> 
 				</div>
 				<div class='tableDiv'>
-					<table id='variableMap2' class='table2' border='1'>
+					<table id='variableMap2' class='table2'>
 						<tr>
    							<td class='tableBox2'></td>
    							<td class='tableBox2'></td>
