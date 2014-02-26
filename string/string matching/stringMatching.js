@@ -139,8 +139,8 @@ window.view = {
 	hideVariables: function (id, variable) {
 		document.getElementById(id).rows[0].cells[variable].innerHTML = '';
 	},
-	setInnerHtml: function (id, innerHTML) {
-		document.getElementById(id).innerHTML = innerHTML;
+	setInnerHtml: function (id, innerText) {
+		document.getElementById(id).innerHTML = innerText;
 	},
 	resetVariablesAtEnd: function () {
 		this.i = 0;
@@ -172,6 +172,10 @@ window.view = {
 		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
 		this.applyColorClass(this.nextSiblingElement.id, 'redClass');
 	},
+	codeExecutionWithColourAndId: function (id) {
+		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
+		this.applyColorClass(id, 'redClass');
+	},
 	showVariablesijk: function () {
 		this.setInnerHtml('iVariable', 'i = ');
 		this.setInnerHtml('jVariable', 'j = ');
@@ -199,8 +203,7 @@ window.view = {
 		this.setInnerHtml('jValue', this.s2j);
 	},
 	incrementInVariableValue: function () {
-		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-		this.applyColorClass('codeContentId12', 'redClass');
+		this.codeExecutionWithColourAndId('codeContentId12');
 		this.s1k = this.s1k + 1;
 		this.s2j = this.s2j + 1;
 		this.setInnerHtml('kValue', this.s1k);
@@ -213,8 +216,7 @@ window.view = {
 		this.showVariables('variableMap1', this.k, 'k');
 	},
 	assignStringVariableValueiTok: function () {
-		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-		this.applyColorClass('codeContentId18', 'redClass');
+		this.codeExecutionWithColourAndId('codeContentId18');
 		this.s1i = this.s1i + 1;
 		this.s1k = this.s1i;
 		this.setInnerHtml('iValue', this.s1i);
@@ -251,10 +253,8 @@ window.view = {
 		else if (this.nextSiblingElement.id === 'codeContentId9') {
 			if (this.s1k != model.inputString1.length && this.s2j != model.inputString2.length)
 				this.codeExecutionWithColour();
-			else if (this.s1k === model.inputString1.length || this.s2j === model.inputString2.length ) {
-				this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-				this.applyColorClass('codeContentId14', 'redClass');
-			}
+			else if (this.s1k === model.inputString1.length || this.s2j === model.inputString2.length )
+				this.codeExecutionWithColourAndId('codeContentId14');
 		}
 		else if (this.nextSiblingElement.id === 'codeContentId10') {
 			if (model.inputString1[this.s1k] != model.inputString2[this.s2j])
@@ -262,14 +262,10 @@ window.view = {
 			else if (model.inputString1[this.s1k] === model.inputString2[this.s2j])
 				this.incrementInVariableValue();
 		}
-		else if (this.nextSiblingElement.id === 'codeContentId13') {
-			this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-			this.applyColorClass('codeContentId8', 'redClass');
-		}
-		else if (this.nextSiblingElement.id === 'codeContentId11' && model.inputString1[this.s1k] != model.inputString2[this.s2j]) {
-			this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-			this.applyColorClass('codeContentId14', 'redClass');
-		}
+		else if (this.nextSiblingElement.id === 'codeContentId13')
+			this.codeExecutionWithColourAndId('codeContentId8');
+		else if (this.nextSiblingElement.id === 'codeContentId11' && model.inputString1[this.s1k] != model.inputString2[this.s2j])
+			this.codeExecutionWithColourAndId('codeContentId14');
 		else if (this.nextSiblingElement.id === 'codeContentId15') {
 			if (this.s2j === model.inputString2.length) {
 				this.codeExecutionWithColour();
@@ -282,10 +278,8 @@ window.view = {
 			alert('Code running is Over !');
 			this.endOfExecution();
 		}
-		else if (this.nextSiblingElement.id === 'codeContentId19') {		
-			this.removeColorClass(this.currentSiblingElement.id, 'redClass');
-			this.applyColorClass('codeContentId6', 'redClass');
-		}
+		else if (this.nextSiblingElement.id === 'codeContentId19')
+			this.codeExecutionWithColourAndId('codeContentId6');
 	},	
 	init: function () {
 		this.activateEvents();
