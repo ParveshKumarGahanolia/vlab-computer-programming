@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name='author' content='Parvesh Kumar Gahanolia'>
+	<link rel='stylesheet' type='text/css' href='BasicPointer.css' />
+	<script type='text/javascript' src='BasicPointer.js' language='JavaScript'></script>
+	<title>Pointers Learning Labs</title>
+</head>
+<body>
+	<div class='head'>POINTERS LEARNING LABS</div>
+	<div class='bottomLeft'>
+		<div class='list'>
+			<span>PROGRAM : BASIC POINTERS</span>
+        </div>
+        <div class='button'>
+        	<button id='nextBtnId' style='float: right;' disabled>NEXT</button>
+			<button id='startBtnId' style='float: right;' >START</button>
+			<button id='backBtnId' style='float: right;' hidden disabled>BACK</button>	
+		</div>
+		<div class='code'>PROGRAM CODE :</div>
+		<div class='codeDiv'>
+			<div id='basicPointerText' class='codeText'>
+				<div id='codeContentBP1'>1&nbsp;#include&lt;stdio.h&gt;</div>
+				<div id='codeContentBP2'>2&nbsp;void main(){</div>
+				<div id='codeContentBP3'>3&emsp;&emsp;int A = 10;</div>
+				<div id='codeContentBP4'>4&emsp;&emsp;printf("Value of A is %d\n",A);</div>
+				<div id='codeContentBP5'>5&emsp;&emsp;printf("Address of A is %d\n",&A);</div>
+				<div id='codeContentBP6'>6&emsp;&emsp;int *P</div>
+				<div id='codeContentBP7'>7&emsp;&emsp;P = &A;</div>
+				<div id='codeContentBP8'>8&emsp;&emsp;printf("Value of P is %d\n",P);</div>
+				<div id='codeContentBP9'>9&emsp;&emsp;printf("Address of P is %d\n",&P);</div>
+				<div id='codeContentBP10'>10&emsp;&emsp;printf("Value at the address in P is %d\n",*P);</div>
+				<div id='codeContentBP11'>11&emsp;&emsp;*P = 20;</div>
+				<div id='codeContentBP12'>12&emsp;&emsp;printf("New Value of A is %d\n",A);</div>
+				<div id='codeContentBP13'>13&nbsp;}</div>
+			</div>
+		</div>
+		<br></br>
+		<div class='output'>PROGRAM OUTPUT :</div>
+		<div class='outputDiv'>
+			<textarea id='outputText'; class='textArea'></textarea>
+		</div>
+	</div>
+	<div class='bottomRight'>
+		<div class='memory'>MEMORY MAP</div>
+		<div class='tableDiv'>
+			<table class='table1' border='1'>
+				 <tr>
+				 	<th>Address&emsp;</th>
+				 	<th>BYTE&nbsp;1&emsp;</th>
+				 	<th>BYTE&nbsp;2&emsp;</th>
+				 	<th>BYTE&nbsp;3&emsp;</th>
+				 	<th>BYTE&nbsp;4&emsp;</th>
+				 	<th>Variable&emsp;</th>
+				 </tr>
+				 <tr>
+				 	<td>60</td><td id='60byte1'></td><td id='60byte2'></td><td id='60byte3'></td><td id='60byte4'></td><td id='60variable'></td>
+				 </tr>
+				 <tr>
+				 	<td>56</td><td id='56byte1'></td><td id='56byte2'></td><td id='56byte3'></td><td id='56byte4'></td><td id='56variable'></td>
+				 </tr>
+				 <tr>
+				 	<td>52</td><td></td><td></td><td></td><td></td><td></td>
+				 </tr>
+				 <tr>
+				 	<td>48</td><td></td><td></td><td></td><td></td><td></td>
+				 </tr>
+				 <tr>
+				 	<td>44</td><td></td><td></td><td></td><td></td><td></td>
+				 </tr>
+				 <tr>
+				 	<td>40</td><td id='40byte1'></td><td id='40byte2'></td><td id='40byte3'></td><td id='40byte4'></td><td id='40variable'></td>
+				 </tr>
+				 <tr>
+				 	<td>36</td><td id='36byte1'></td><td id='36byte2'></td><td id='36byte3'></td><td id='36byte4'></td><td id='36variable'></td>
+				 </tr>
+				 <tr>
+				 	<td>32</td><td id='32byte1'></td><td id='32byte2'></td><td id='32byte3'></td><td id='32byte4'></td><td id='32variable'></td>
+				 </tr> 
+				 <tr>
+				 	<td>28</td><td></td><td></td><td></td><td></td><td></td>
+				 </tr>
+				 <tr>
+				 	<td>24</td><td></td><td></td><td></td><td></td><td></td>
+				 </tr>
+				 <tr>
+				 	<td>20</td><td></td><td></td><td></td><td></td><td></td>
+				 </tr>
+				 <tr>
+				 	<td>16</td><td></td><td></td><td></td><td></td><td></td>
+				 </tr>
+				 <tr>
+				 	<td>12</td><td></td><td></td><td></td><td></td><td></td>
+				 </tr>
+			</table>
+			<table class='table2' border='1'>
+				<tr>
+				 	<td class='td1'>8</td><td class='td2'>Program Memory</td>
+				</tr>
+				<tr>
+				 	<td>4</td><td>Program Memory</td>
+				</tr>
+				<tr>
+				 	<td>0</td><td>Reserved By Os</td>
+				</tr>
+			</table> 
+		</div>
+		<div class='explanation'>EXPLANATION :</div>
+		<div class='explanationDiv'>
+			<textarea id='explanationText' class='textArea'></textarea>
+		</div>
+</body>
+</html>
