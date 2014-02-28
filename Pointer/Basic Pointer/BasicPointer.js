@@ -83,35 +83,35 @@ window.view = {
 		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
 		this.applyColorClass(this.previousSiblingElement.id, 'redClass');
 	},
-	resetTable60: function () {
+	resetValueAtAddress60: function () {
 		this.setInnerHtml('60byte1', '');
 		this.setInnerHtml('60byte2', '');
 		this.setInnerHtml('60byte3', '');
 		this.setInnerHtml('60byte4', '');
 		this.setInnerHtml('60variable', '');
 	},
-	resetTable56: function () {
+	resetValueAtAddress56: function () {
 		this.setInnerHtml('56byte1', '');
 		this.setInnerHtml('56byte2', '');
 		this.setInnerHtml('56byte3', '');
 		this.setInnerHtml('56byte4', '');
 	},
-	setValueInTable60: function () {
+	setValueAtAddress60: function () {
 		this.setInnerHtml('60byte1', '0');
 		this.setInnerHtml('60byte2', '0');
 		this.setInnerHtml('60byte3', '0');
 		this.setInnerHtml('60byte4', '10');
 		this.setInnerHtml('60variable', 'A');
 	},
-	setValueInTable56: function () {
+	setValueAtAddress56: function () {
 		this.setInnerHtml('56byte1', '0');
 		this.setInnerHtml('56byte2', '0');
 		this.setInnerHtml('56byte3', '0');
 		this.setInnerHtml('56byte4', '60');
 	},
 	resetTable: function () {
-		this.resetTable60();
-		this.resetTable56();
+		this.resetValueAtAddress60();
+		this.resetValueAtAddress56();
 		this.setInnerHtml('56variable', '');
 	},
 	resetVariables: function () {
@@ -161,7 +161,7 @@ window.view = {
 		}
 		else if (this.nextSiblingElement.id === 'codeContentBP3') {
 			this.setString('explanationText', this.explanationBP2);
-			this.setValueInTable60();
+			this.setValueAtAddress60();
 		}
 		else if (this.nextSiblingElement.id === 'codeContentBP4')
 			this.setStringInTextArea(this.outputBP1, this.explanationBP3);
@@ -173,7 +173,7 @@ window.view = {
 		}
 		else if (this.nextSiblingElement.id === 'codeContentBP7') {
 			this.setString('explanationText', this.explanationBP6);
-			this.setValueInTable56();
+			this.setValueAtAddress56();
 		}
 		else if (this.nextSiblingElement.id === 'codeContentBP8')
 			this.setStringInTextArea(this.outputBP3, this.explanationBP7);
@@ -204,7 +204,7 @@ window.view = {
 		}
 		else if (this.previousSiblingElement.id === 'codeContentBP2') {
 			this.eraseString('explanationText');
-			this.resetTable60();
+			this.resetValueAtAddress60();
 		}
 		else if (this.previousSiblingElement.id === 'codeContentBP3') 
 			this.eraseStringFromTextArea('outputText', 'explanationText', this.explanationBP2);
@@ -216,7 +216,7 @@ window.view = {
 		}
 		else if (this.previousSiblingElement.id === 'codeContentBP6') {
 			this.eraseStringFromTextArea('outputText', 'explanationText', this.explanationBP5);
-			this.resetTable56();
+			this.resetValueAtAddress56();
 		}
 		else if (this.previousSiblingElement.id === 'codeContentBP7')
 			this.eraseStringFromTextArea('outputText', 'explanationText', this.explanationBP6);
