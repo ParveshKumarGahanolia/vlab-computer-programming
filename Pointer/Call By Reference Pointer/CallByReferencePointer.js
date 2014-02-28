@@ -54,16 +54,16 @@ window.view = {
 		document.getElementById(id).classList.remove(colorClass);
 	},
 	replaceElement: function (id1, id2) {
-    	document.getElementById(id1).style.display = 'none';
-    	document.getElementById(id2).style.display = 'block';
-    },
+		document.getElementById(id1).style.display = 'none';
+		document.getElementById(id2).style.display = 'block';
+	},
 	eraseString: function (id) {
-    	document.getElementById(id).value = '';
+		document.getElementById(id).value = '';
 	},
 	setInnerHtml: function (id, innerText) {
- 		document.getElementById(id).innerHTML = innerText;
- 	},
-    getElementByClass: function (className) {
+		document.getElementById(id).innerHTML = innerText;
+	},
+	getElementByClass: function (className) {
 		var element = document.getElementsByClassName(className);
 		return element[0];
 	},
