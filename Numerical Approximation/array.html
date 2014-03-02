@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="button.css" />
+<link rel="stylesheet" type="text/css" href="array.css" />
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<script src = "array.js"></script>
+<title>Numerical Approximation</title>
+</head>
+
+<body>
+<div id="headerSimpleLoop">Numerical Integration ( Area Under Curve )</div>
+<div class="vlabsIcon"></div>
+<div id="mainBody">
+
+	<div class="inputDivision">
+
+
+		<div class="FirstInputBlock">
+		
+		<div class = "problemStatementDivisionTitle" ><div class="problemPic"></div><div class="experimentText">Problem ?</div></div>
+			
+		<div class="inputDivisionSimpleLoop" id = "inputDivisionSimpleLoop" >
+
+			
+		   
+			<div class="warningText">1. Given a well-behaved smooth function, integrate it over the given limits of integration ?</div>
+		<div class="warningText">2. Approximating solution to integral a smooth function.</div>
+
+		
+
+          </div>
+		</div>
+
+
+
+<div class="SecondInputBlock">
+		
+		<div class = "inputDivisionTitle" ><div class="experimentPic"></div><div class="experimentText">Initialize</div></div>
+			
+		<div class="inputDivisionSimpleLoop" id = "inputDivisionSimpleLoop" >
+
+			
+		   
+			<div class="factorialText">Initialize variables</div>
+			<div class="arraySizeDivision" ><input  placeholder="Value of a" class="inputFieldSimpleLoop" type="text"   id='valueA' size='10' ></div>
+			<div class="arraySizeDivision" ><input  placeholder="Value of b" class="inputFieldSimpleLoop" type="text"   id='valueB' size='10' ></div>
+			<div class="startButtonDivision"><button  class="button startButton" id = "okBtnId" >OK</button></div>
+
+			 <button class="buttonDisable myStartButton" id="startBtnId" disabled>Start</button><button class="buttonDisable myStartButton hide" id = "stopBtnId" disabled>Stop</button>
+			 <button class="buttonDisable nextButton" id = "nextBtnId" disabled>Next</button>
+		
+
+          	
+            
+			</div>
+		</div>
+
+
+		
+	</div>
+
+
+	
+	<div class="executionDivision">
+		<div class="executionDivisionTitle"><div class="executionPic"></div><div class="executionText">Step Execution</div></div>
+		<div class="stepExecutionDisplay" >
+			
+
+			<div id='NumApproCode' class='programCode'>
+				<div id='NumApproCodeContent1'>main(){</div>
+				<div id='NumApproCodeContent2'>&emsp;&emsp;&emsp;int a, b, width, i;</div>
+				<div id='NumApproCodeContent3'>&emsp;&emsp;&emsp;double sum;</div>
+				<div id='NumApproCodeContent4'>&emsp;&emsp;&emsp;scanf("%d%d", &a, &b );</div>
+				<div id='NumApproCodeContent5'>&emsp;&emsp;&emsp;sum = 0; width = 1; i = 0;</div>
+				<div id='NumApproCodeContent6'>&emsp;&emsp;&emsp;for ( i = a; b >= i; i += width){</div>
+				<div id='NumApproCodeContent7'>&emsp;&emsp;&emsp;&emsp;&emsp;sum = sum + cos(2*Pi/13*i) * width;</div>
+				<div id='NumApproCodeContent8'>&emsp;&emsp;&emsp;}</div>
+				<div id='NumApproCodeContent9'>&emsp;&emsp;&emsp;printf("Integration value = %d", sum);</div>
+				<div id='NumApproCodeContent10'>}</div>
+			</div>
+
+
+		
+			</div>
+	</div>
+	
+	<div class="outputDivision"> 
+		<div class="outputDivisionTitle"><div class="outputPic"></div><div class="outputText">Graph Visualization</div></div>
+	
+		<div class="resultDisplay" id = "resultDisplay" >
+		
+
+
+	<div class='graph'>
+				<canvas class="canvas" id='myCanvas' width='520' height='360'>
+
+				</canvas>
+
+			</div>
+
+
+
+			
+
+
+				<div class="gapBitweenMeamoryGap"></div>
+
+				
+
+				<div id='resultShowDiv' class='textAlignLeft'>
+				<br>
+				<div>&emsp;<span>LOCAL VARIABLES :</span>&emsp;&emsp;<span id='vari'></span><span id='valuei'></span>&emsp;&emsp;<span id='varsum'></span><span id='valuesum'></span></div>
+				<br>
+				<div>&emsp;<span>OUTPUT :</span>&emsp;&emsp;<span id='integrText'></span><span id='integrValue'></span></div>
+			</div>
+
+
+
+
+
+			</div>
+			
+			
+
+			
+
+		</div>
+	</div>
+
+</div>
+</body>
+</html>
