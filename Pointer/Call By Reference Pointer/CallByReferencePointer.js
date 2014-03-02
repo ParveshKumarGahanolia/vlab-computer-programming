@@ -36,7 +36,7 @@ window.view = {
 		this.addClickEvent('backBtnId', function() { view.reverseExecution() });
 	},
 	setString: function (id, string) {
-		document.getElementById(id).value = string;
+		document.getElementById(id).innerHTML = string;
 	},
 	enableElement: function(Id) {
 		document.getElementById(Id).disabled = false;
@@ -58,7 +58,7 @@ window.view = {
 		document.getElementById(id2).style.display = 'block';
 	},
 	eraseString: function (id) {
-		document.getElementById(id).value = '';
+		document.getElementById(id).innerHTML = '';
 	},
 	setInnerHtml: function (id, innerText) {
 		document.getElementById(id).innerHTML = innerText;
@@ -184,7 +184,10 @@ window.view = {
 	},
 	resetButton: function () {
 		this.disableElement('nextBtnId');
+		this.changeClass('nextBtnId', 'buttonDisable nextButton');
 		this.replaceElement('backBtnId', 'startBtnId');
+		this.enableElement('startBtnId');
+		this.changeClass('startBtnId', 'button startButton');
 	},
 	endOfExecution: function () {
 		this.resetTable();
@@ -199,9 +202,12 @@ window.view = {
 	startExecution: function () {
 		this.applyColorClass('codeContentCBR1', 'redClass');
 		this.replaceElement('startBtnId', 'backBtnId');
+		this.disableElement('startBtnId');
 		this.enableElement('nextBtnId');
 		this.disableElement('backBtnId');
 		this.eraseStringFromTextArea('outputText', 'explanationText', this.explanationCBR1);
+		this.changeClass('nextBtnId', 'button nextButton');
+		this.changeClass('startBtnId', 'buttonDisable startButton');
 	},
 	continueExecution: function () {
 		this.currentSiblingElement = this.getElementByClass('redClass');
@@ -210,6 +216,7 @@ window.view = {
 			this.codeExecutionWithColour();
 			this.eraseString('explanationText');
 			this.enableElement('backBtnId');
+			this.changeClass('backBtnId', 'button startButton');
 		}
 		else if (this.nextSiblingElement.id === 'codeContentCBR3') {
 			this.codeExecutionWithColour();
@@ -276,6 +283,7 @@ window.view = {
 			this.reverseCodeExecutionWithColour();
 			this.setString('explanationText', this.explanationCBR1);
 			this.disableElement('backBtnId');
+			this.changeClass('backBtnId', 'buttonDisable nextButton');
 		}
 		else if (this.previousSiblingElement.id === 'codeContentCBR2') {
 			this.reverseCodeExecutionWithColour();
