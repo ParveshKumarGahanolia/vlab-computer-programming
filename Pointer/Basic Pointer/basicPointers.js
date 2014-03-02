@@ -56,7 +56,7 @@ window.view = {
 		document.getElementById(id2).style.display = 'block';
 	},
 	eraseString: function (id) {
-    	document.getElementById(id).innerHTML = '';
+    		document.getElementById(id).innerHTML = '';
 	},
 	setInnerHtml: function (id, innerText) {
  		document.getElementById(id).innerHTML = innerText;
