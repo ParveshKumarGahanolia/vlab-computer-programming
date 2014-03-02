@@ -43,6 +43,9 @@ window.view = {
 		document.getElementById(id1).style.display = 'none';
 		document.getElementById(id2).style.display = 'block';
 	},
+	changeClass: function(id, className) {
+		document.getElementById(id).className = className
+	},
     applyColorClass: function (id, colorClass) {
 		document.getElementById(id).classList.add(colorClass);
 	},
@@ -84,12 +87,23 @@ window.view = {
  		this.setValue('valueA', '');
  		this.setValue('valueB', '');
  	},
- 	atTheEndOfExecution: function () {
+ 	resetButtonAndTextField: function () {
+		this.replaceElement('stopBtnId', 'startBtnId');
+		this.enableElement('valueA');
+		this.enableElement('valueB');
+		this.enableElement('okBtnId');
+		this.disableElement('nextBtnId');
+		this.disableElement('stopBtnId');
+		this.changeClass('okBtnId', 'button startButton');
+		this.changeClass('startBtnId', 'buttonDisable myStartButton');
+		this.changeClass('stopBtnId', 'buttonDisable startButton');
+		this.changeClass('nextBtnId', 'buttonDisable nextButton');
+	},
+ 	endOfExecution: function () {
 		this.clearDivValues();
 		this.resetVariables();
 		this.resetTextFieldValue();
-		this.replaceElement('stopBtnId', 'startBtnId');
-		this.disableElement('nextBtnId');
+		this.resetButtonAndTextField();
 		this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.canvasContext.restore();
 		this.drawCanvas();
@@ -115,7 +129,7 @@ window.view = {
 		this.canvasContext.lineTo(20, 360);
 		this.canvasContext.moveTo(20, 180);
 		this.canvasContext.lineTo(520, 180);
-		this.canvasContext.strokeStyle = '#000000';
+		this.canvasContext.strokeStyle = '#3072b3';
 		this.canvasContext.lineWidth = 2;
 		this.canvasContext.stroke();
 	},
@@ -154,7 +168,7 @@ window.view = {
 			this.canvasContext.moveTo(20, position);
 			this.canvasContext.lineTo(520, position);
 		}
-		this.canvasContext.strokeStyle = '#3ADF00';
+		this.canvasContext.strokeStyle = '#CCC';
 		this.canvasContext.lineWidth = 1;
 		this.canvasContext.stroke();
 	},
@@ -164,7 +178,7 @@ window.view = {
 			this.canvasContext.moveTo(position, 0);
 			this.canvasContext.lineTo(position, 360);
 		}
-		this.canvasContext.strokeStyle = '#3ADF00';
+		this.canvasContext.strokeStyle = '#CCC';
 		this.canvasContext.lineWidth = 1;
 		this.canvasContext.stroke();
 	},
@@ -178,7 +192,7 @@ window.view = {
 			yAxis = 80 + (100 - (y))
 			this.canvasContext.lineTo(xAxis, yAxis)
 		}
-		this.canvasContext.strokeStyle = '#ff0000';
+		this.canvasContext.strokeStyle = '#F7971E';
 		this.canvasContext.lineWidth = 2;
 		this.canvasContext.stroke();
 		this.canvasContext.save();
@@ -186,7 +200,7 @@ window.view = {
 	drawRectangle: function (xCoordinates, yCoordinates, width, high) {
 		this.canvasContext.beginPath();
 		this.canvasContext.globalAlpha= 0.6;
-		this.canvasContext.fillStyle='#FF00FF';
+		this.canvasContext.fillStyle='#9BBB5A';
 		this.canvasContext.fillRect(xCoordinates, yCoordinates, width, high);
 	},
 	showAreaUnderCurve: function () {
@@ -243,26 +257,25 @@ window.view = {
 			model.inputValueA = valueA2;
 			model.inputValueB = valueB2;
 		}
-		this.applyColorClass('NumApproCodeContent1', 'redClass');
-		this.currentSiblingElement = this.getElementByClass('redClass');
-		this.enableElement('nextBtnId');
+		this.enableElement('startBtnId');
 		this.disableElement('okBtnId');
 		this.disableElement('valueA');
 		this.disableElement('valueB');
+		this.changeClass('okBtnId', 'buttonDisable startButton');
+		this.changeClass('startBtnId', 'button myStartButton');
 	},
 	startExperiment: function () {
 		this.replaceElement('startBtnId', 'stopBtnId');
-		this.enableElement('valueA');
-		this.enableElement('valueB');
-		this.enableElement('okBtnId');
+		this.enableElement('stopBtnId');
+		this.enableElement('nextBtnId');
+		this.disableElement('startBtnId');
+		this.applyColorClass('NumApproCodeContent1', 'redClass');
+		this.changeClass('startBtnId', 'myStartButton button');
+		this.changeClass('stopBtnId', 'myStartButton button');
+		this.changeClass('nextBtnId', 'nextButton button');
 	},
 	stopExperiment: function () {
-		this.replaceElement('stopBtnId', 'startBtnId');
-		this.disableElement('valueA');
-		this.disableElement('valueB');
-		this.disableElement('okBtnId');
-		this.disableElement('nextBtnId');
-		this.atTheEndOfExecution();
+		this.endOfExecution();
 	},
 	plotCurveArea: function () {
 		this.currentSiblingElement = this.getElementByClass('redClass');
@@ -308,7 +321,7 @@ window.view = {
 		else if (this.nextSiblingElement.id === 'NumApproCodeContent10') {
 			this.executionWithColour();
 			alert('Code running is Over !');
-			this.atTheEndOfExecution();
+			this.endOfExecution();
 		}
 	},
 	init: function () {
