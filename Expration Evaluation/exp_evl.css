@@ -1,0 +1,131 @@
+* {
+margin: 0; padding: 0;
+}
+
+body{
+text-align: center;
+background-color:#D2D2D2;
+}
+
+#header, #sub_header {
+float: left;
+width: 100%;
+height: 42px;
+background-color:#8C8C8C; 
+text-align:center;
+font-size: 25px;
+color: black;
+padding-top: 10px;
+}
+
+#sub_header{
+	
+background-color:#D2D2D2;
+border-bottom: 1px solid #969696;
+}
+
+#main_body{
+width: 100%;
+height: 550px;
+}
+
+.input_division, .expression_division, .output_division{
+float: left;
+height: 548px;
+}
+
+.input_division{
+width:20%;
+}
+
+.expression_division, .output_division{
+width:39.9%;
+
+}
+
+.expression_division, .output_division, .initialize_the_velue, .select_the_expression{
+border-right:1px solid #969696;
+border-bottom: 1px solid #969696;
+}
+
+.initialize_the_velue,.select_the_expression{
+height: 49.9%;
+
+}
+
+.input_value_field, .edit_save_button, .start_next_button{
+text-align:center;
+font-size:16px;
+width:30%;
+margin-top:20px;
+padding:4px 4px 4px 4px;
+}
+
+.input_value_field, .expression_type_input_field {
+border:1px solid #969696;
+}
+
+.start_next_button{
+margin-top: 20px;
+float: left;
+margin-left: 36%;
+}
+
+.edit_save_button{
+float: left;
+margin-left: 36%;
+margin-top: 50px;
+}
+
+.operater_type_list{
+width:29%;
+}
+
+.expression_type_input_list{
+	width: 80%;
+}
+
+.expression_type_input_field{
+width: 76%;
+}
+
+.box_header{
+background-color:#8C8C8C; 
+margin-bottom: 20px;
+padding-top: 5px;
+}
+
+.any_text, .box_header{
+font-size: 18px;
+width: 100%;
+height: 25px;
+text-align: center;
+}
+
+.expression_type_input_field{
+margin-top: 30px;
+}
+
+.operater_type_list, .expression_type_input_list, .expression_type_input_field{	
+margin-left:10%;
+margin-right: 10%;
+text-align:left;
+font-size:16px;
+padding:4px 4px 4px 4px;
+}
+
+.reasoning_area{
+width: 100%;
+height: 240px;
+background-color:#D2D2D2;
+margin-top: -20px;
+border: 1px solid #D2D2D2;
+}
+
+.first_result_on_click_start_button, .child_div_in_result{
+	color: red;
+	margin-top: 15px;
+	font-size: 20px;
+}
+
+

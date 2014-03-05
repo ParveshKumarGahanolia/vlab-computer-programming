@@ -21,7 +21,6 @@ body {
 .button, .buttonDisable {
     position: relative;
     padding: 0.5em 1em;
-    cursor: pointer;
     border-radius: 0.2em; 
     overflow: visible;
     outline: none;
@@ -36,6 +35,10 @@ body {
     text-decoration: none;
     display: inline-block;
   }
+
+.button{
+    cursor: pointer;
+}
 
 #header, .button {
     text-shadow: -1px -1px 0 rgba(0,0,0,0.3);

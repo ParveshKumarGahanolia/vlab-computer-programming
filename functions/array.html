@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="array.css" />
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<title>Advanced Control Flow</title>
+</head>
+
+<body>
+<div id="header">Array ( Insertion Sort )</div>
+<div class="vlabsIcon"></div>
+
+<div class="inputDivision">
+	<div class = "inputDivisionTitle" ><div class="initializePic"></div><div class="initializeText">Initialize</div></div>
+	<div class="inputDivisionBody" >
+		<div class="questionBlock hide">
+			<div class="questionText">1. Enter number of arguments :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">1</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">2</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">3</label></div><!-- end of question no 1 of this questionBlock -->	
+
+			<div class="questionText">2. Enter datatype of arguments :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">int</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">float</label></div><!-- end of question no 2 of this questionBlock -->
+
+			<div class="questionTextRich">3. Enter return datatype of the function :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">int</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">float</label></div><!-- end of question no 3 of this questionBlock -->	
+
+			<div class="questionTextRich">4. Choose formula for area of the square :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">a*a</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">&pi;*a*a</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">2*&pi;*a</label></div><!-- end of question no 4 of this questionBlock -->
+
+			<button class="button okButton" id = "" disabled>OK</button>	
+		</div><!-- end of questionBlock -->
+		<div class="questionBlock hide">
+			<div class="questionText">1. Enter number of arguments :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">1</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">2</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">3</label></div><!-- end of question no 1 of this questionBlock -->	
+
+			<div class="questionText">2. Enter datatype of arguments :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">int</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">float</label></div><!-- end of question no 2 of this questionBlock -->
+
+			<div class="questionTextRich">3. Enter return datatype of the function :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">int</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">float</label></div><!-- end of question no 3 of this questionBlock -->	
+
+			<div class="questionTextRich">4. Choose formula for area of the rectangle :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">a*a</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">a*b</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">2*&pi;*a</label></div><!-- end of question no 4 of this questionBlock -->
+
+			<button class="button okButton" id = "" disabled>OK</button>	
+		</div><!-- end of questionBlock -->
+		<div class="questionBlock hide">
+			<div class="questionText">1. Enter number of arguments :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">1</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">2</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">3</label></div><!-- end of question no 1 of this questionBlock -->	
+
+			<div class="questionText">2. Enter datatype of arguments :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">int</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">float</label></div><!-- end of question no 2 of this questionBlock -->
+
+			<div class="questionTextRich">3. Enter return datatype of the function :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">int</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">float</label></div><!-- end of question no 3 of this questionBlock -->
+
+			<div class="questionTextRich">4. Choose formula for area of the triangle :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">a*a</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">&pi;*a*a</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">(&radic;3/4.0)*a*a</label></div><!-- end of question no 4 of this questionBlock -->
+
+			<button class="button okButton" id = "" disabled>OK</button>	
+		</div><!-- end of questionBlock -->
+		<div class="questionBlock hide">
+			<div class="questionText">1. Enter number of arguments :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">1</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">2</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">3</label></div><!-- end of question no 1 of this questionBlock -->
+
+			<div class="questionText">2. Enter datatype of arguments :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">int</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">float</label></div><!-- end of question no 2 of this questionBlock -->
+
+			<div class="questionTextRich">3. Enter return datatype of the function :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">int</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">float</label></div><!-- end of question no 3 of this questionBlock -->
+
+			<div class="questionTextRich">4. Choose formula for area of the circle :</div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">a*a</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">&pi;*a*a</label></div>
+			<div class="radioButtonHolder"><input type="radio" class="radiobutton" name="radio_group" id = 'btnRandom'><label class="radioText" for="male">(&radic;3/4.0)*a*a</label></div><!-- end of question no 4 of this questionBlock -->
+
+			<button class="button okButton" id = "" disabled>OK</button>	
+		</div><!-- end of questionBlock -->
+		<div class="questionBlock">
+			<div class="programInitialization">int main() {<br>&emsp;float totalArea;</div>
+			<div class="computeArea">totalArea = </div>
+			<input  class="textArea" type="text"  id = 'inputArraySize'>
+			<input  class="textArea" type="text"  id = 'inputArraySize'>
+			<input  class="textArea" type="text"  id = 'inputArraySize'>
+			<input  class="textArea" type="text"  id = 'inputArraySize'>
+			<input  class="textArea" type="text"  id = 'inputArraySize'>
+			<input  class="textArea" type="text"  id = 'inputArraySize'>
+			<input  class="textArea" type="text"  id = 'inputArraySize'>
+			<div class="programTail">&emsp;&emsp;printf("Total Area : %f/n", totalArea);<br>&emsp;&emsp;return 0;<br>}</div>
+			<button class="button okButton" id = "" disabled>OK</button>	
+		</div><!-- end of questionBlock -->
+	</div><!-- end of inputDivisionBody -->
+</div><!-- end of inputDivision -->
+<div class="executionDivision">
+	<div class="executionDivisionTitle"><div class="executionPic"></div><div class="executionText">Step Execution</div></div>
+	<div class="stepExecutionDisplay" >
+		<div class="functionForSquare"><span class="textColor">//function for square</span><br></div>
+		<div class="functionForRectangle"><span class="textColor">//function for rectangle</span><br></div>
+		<div class="functionForTriangle"><span class="textColor">//function for triangle</span><br></div>
+		<div class="functionForCircle"><span class="textColor">//function for circle</span><br></div>
+	</div><!-- end of stepExecutionDisplay -->
+</div><!-- end of executionDivision -->
+<div class="outputDivision"> 
+	<div class="outputDivisionTitle"><div class="outputPic"></div><div class="outputText">Code Output</div></div>
+	<div class="resultDisplay" id = "resultDisplay" >
+		<div class="imageBlock hide">
+			<div class="imageSquare"></div>
+			<div class="imageRectangle"></div>
+			<div class="imageTriangle"></div>
+			<div class="imageCircle"></div>
+		</div><!-- end of imageBlock -->
+		<div class="imageComplex"></div><!-- end of imageComplex -->
+	</div><!-- end of resultDisplay -->
+</div><!-- end of outputDivision -->
+</body>
+</html>

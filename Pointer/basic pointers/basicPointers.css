@@ -34,7 +34,7 @@ body {
     *display: inline;
     text-decoration: none;
     display: inline-block;
-}
+  }
 
 .button {
 	cursor: pointer;
@@ -214,9 +214,6 @@ body {
 	left: 0%;
 	width: 100%;
 	height: 78%;
-    padding-top: 10px;
-	text-align: left;
-    padding-left: 15px;
 	font-size: 1em;
 	border-top: 1px solid #CCC;
 }
@@ -291,7 +288,8 @@ body {
 	height: 80%;
   	font-size: .8em;
   	border: 1px Solid #CCC;
-  	border-collapse: collapse;  	
+  	border-collapse: collapse;
+  	
 }
 
 .table2 {
@@ -303,7 +301,7 @@ body {
 }
 
 .table1 td, .table1 th {
-    border: 1px solid #CCC;
+  border: 1px solid #CCC;
 }
 
 .table2 td {
@@ -323,7 +321,7 @@ body {
 .stepExecutionDisplay {
     padding-left: 2%;
     overflow-x: auto;
-    font-size: 1.1em;
+    font-size: 1.2em;
     position: absolute;
     top: 10%;
     left: 0%;
@@ -338,6 +336,7 @@ body {
 	top: 90%;
 	left: 0%;
 	height: 10%;
+    min-height: 38px;
 	width: 100%;
 	border-top: 1px solid #CCC;
 }

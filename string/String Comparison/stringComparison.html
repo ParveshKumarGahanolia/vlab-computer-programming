@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="stringComparison.css" />
 <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 <script src = "stringComparison.js"></script>
-<title>Advanced Control Flow</title>
+<title>String Comparison</title>
 </head>
 <body>
 <div id="header">String Comparison</div>
@@ -14,10 +14,10 @@
 	<div class="problemBlock">
 		<div class = "problemStatementTitle" ><div class="problemPic"></div><div class="experimentText">Problem ?</div></div>
 		<div class="problemStatementBody" id = "inputDivisionSimpleLoop" >
-			<div class="warningText">1. Given Two strings str1 and str2, Find out the relationship between the strings str2 and str1 ?</div>
+			<div class="warningText">1. Given Two strings str1 and str2, Find out the relationship between the strings str2 and str1 ?</div><!-- end of warningText block 1 -->
 			<div class="warningText">2. Initailize the value of str1 and str2 in below given section.</div>
-		</div>
-	</div>
+		</div><!-- end of inputDivision block 2 -->
+	</div><!-- end of problemBlock -->
 	<div class="inputBlock">
 		<div class = "inputDivisionTitle" ><div class="experimentPic"></div><div class="experimentText">Initialize</div></div>
 		<div class="inputDivisionBody" id = "inputDivisionSimpleLoop" >
@@ -29,15 +29,15 @@
 			 	<button class="buttonDisable myStartButton" id="startBtnId"  disabled>Start</button>
 			 	<button class="buttonDisable myStartButton hide" id = "stopBtnId" disabled>Stop</button>
 			 	<button id = "nextBtnId" class="buttonDisable nextButton" disabled>Next</button>
-			</div>
-		</div>
-	</div>
-</div>
+			</div><!-- end of buttonHolder -->
+		</div><!-- end of inputDivisionBody -->
+	</div><!-- end of inputBlock -->
+</div><!-- end of inputDivision -->
 
 <div class="executionDivision">
 	<div class="executionDivisionTitle"><div class="executionPic"></div><div class="executionText">Step Execution</div></div>
 	<div class="stepExecutionDisplay" >
-		<div id='strMatchCode' class='programCode'>
+		<div class='programCode' id='strMatchCode' >
 			<div id='codeContentSC1'>main(){</div>
 			<div id='codeContentSC2'>&emsp;&emsp;char str1[100], str2[100];</div>
 			<div id='codeContentSC3'>&emsp;&emsp;int i, j;</div>
@@ -57,9 +57,9 @@
 			<div id='codeContentSC17'>&emsp;&emsp;else {</div>
 			<div id='codeContentSC18'>&emsp;&emsp;&emsp;&emsp;printf("String str2 is greater than str1.\n"); }</div>
 			<div id='codeContentSC19'>}</div>
-		</div>
-	</div>
-</div>
+		</div><!-- end of programCode -->
+	</div><!-- end of stepExecutionDisplay -->
+</div><!-- end of executionDivision -->
 	
 <div class="outputDivision"> 
 	<div class="outputDivisionTitle"><div class="outputPic"></div><div class="outputText">Code Output</div></div>
@@ -77,8 +77,8 @@
 						<td class='tableBox1'></td>
 						<td class='tableBox1'></td>
 					</tr>
-			</table> 
-		</div>
+			</table> <!-- end of table1 -->
+		</div><!-- end of tableDiv -->
 		<div class='tableDiv'>
 			<table id='variableMap1' class='table2'>
 				<tr>
@@ -99,8 +99,8 @@
 					<td class='tableBox2'></td>
 					<td class='tableBox2'></td>
 				</tr>
-			</table>
-		</div>
+			</table><!-- end of table2 -->
+		</div><!-- end of tableDiv -->
 		<div class="gapBitweenMeamoryGap"></div>
 			<div class="memoryMapOfStr">Memory Map Of Str2:</div>
 			<div class='tableDiv'>
@@ -115,8 +115,8 @@
 						<td class='tableBox1'></td>
 						<td class='tableBox1'></td>
 					</tr>
-				</table> 
-			</div>
+				</table><!-- end of table1 --> 
+			</div><!-- end of tableDiv -->
 			<div class='tableDiv'>
 				<table id='variableMap2' class='table2'>
 					<tr>
@@ -137,17 +137,17 @@
 						<td class='tableBox2'></td>
 						<td class='tableBox2'></td>
 					</tr>
-				</table>
-			</div>
+				</table><!-- end of table2 -->
+			</div><!-- end of tableDiv -->
 			<div class="gapBitweenMeamoryMap"></div>
 			<div class='output'><span>OUTPUT :&emsp;</span><span id='outputStr'></span></div>
 			<div class='localVariables'>
 				<div class='variableDiv'>LOCAL VARIABLE:</div>
 				<div class='variableDiv'><span id='iVariable'></span><span id='iValue'></span></div>
 				<div class='variableDiv'><span id='jVariable'></span><span id='jValue'></span></div>
-			</div>
-		</div>
-	</div>
+			</div><!-- end of localVariables -->
+		</div><!-- end of resultDisplay -->
+	</div><!-- end of outputDivision -->
 
 </body>
 </html>

@@ -1,0 +1,417 @@
+/*author: Parvesh Kumar Gahanolia
+email: parvesh@vlabs.ac.in*/
+
+* {
+margin: 0; padding: 0;
+}
+
+body {
+	background-color:#FFC0CB;
+}
+
+
+
+.control_flow{
+	  width: 97.85%;
+  	height: 10%;
+  	float: left;
+  	border: 1px solid #969696;
+  	margin: 1%;
+  	margin-top: 1%;
+  	margin-right: 1%;
+  	background-color: #CC6600;
+  }
+
+.control_flow_text{
+  font-size: 1.375em;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 3%;
+  color: black;  
+  float: left;
+  width: 61%; 
+}
+
+.control_flow_list{
+    float: right;
+    border: 1px solid #969696;
+    padding: 2px 2px 2px 2px;
+    background: #DCDCDC;
+    font-size: 1.125em;
+    width:31%;
+    width: 31%;
+    margin: 1%;
+    margin-top: 1%;
+    margin-right: 3%;
+  }
+
+.switch_experiment{
+	width:98%;
+  	
+  	float:left;
+  	margin-top: 0.4%;
+  	margin-left: 1%;
+  	font-size: 1.375em;
+  	text-align: left;
+  	color: black;
+
+  }
+
+.select_the_day{
+  	width:30%;
+  	height:560px;
+  	float:left;
+  	border: 1px solid #969696;
+  	font-size: 1em;
+  	text-align: center;
+  	color: black;
+  }
+
+.code{
+  	width:32%;
+  	height:560px;
+  	float:left;
+  	margin-left: 1%; 
+  	border: 1px solid #969696;
+  	font-size: 1em;
+  	text-align: center;
+  	color: black;
+  }
+
+.code_text_div{
+  font-size: 0.55em;
+  text-align: left;
+  padding-top: 10px;
+  background: #F8F8FF;
+  height: 520px;
+}
+
+.visual_output_of_code_running{
+	  width:35.5%;
+  	height:560px;
+  	float:left;
+  	margin-left: 1%; 
+  	border: 1px solid #969696;
+  	font-size: 1em;
+  	text-align: center;
+  	color: black;
+  }
+
+.heading_background_color{
+	background-color: #C8B560;
+  border: 1px solid #969696;
+  }
+
+.day{
+	font-size: 0.7em;
+	padding-top: 10px;
+}
+
+.variables{
+	font-size: .8em;
+	padding-top: 16px;
+
+}
+
+.margin{
+	padding-top: 25px;
+}
+
+.switch_case{
+	font-size: .7em;
+	padding-top: 10px;
+}
+
+.text_field{
+		width: 50px;
+    height: 20px;
+    font-size: 1.06em;
+    font-weight: bold;
+}
+
+blank{
+  margin-left: 20px;
+  font-size: .7em;
+  padding-top: 10px;
+}
+
+.Switch_Case_drop_down_list{
+    width: 100%;
+    height: 18px;
+}
+
+.button_alignment{
+  margin-top: 2%;
+  margin-left: 42.5%;
+  margin-right: 42.5%;
+  
+}
+
+/* CODE TEXT */
+
+.main{
+  margin-left: 5%;
+  font-weight: bold;
+}
+.char_str_switch{
+  margin-left: 12.5%;
+  margin-top: 5px;
+}
+
+.case_default_text{
+  margin-left: 21.25%;
+  margin-top: 4px;
+}
+
+.break{
+  margin-left: 34.2%;
+  margin-top: 2px;
+}
+
+/*VISUAL OUTPUT OF CODE RUNNING*/
+.day_logo_div{
+  border-right: 1px solid #969696;
+  height: 95%;
+  width:25%;
+  float: left;
+}
+
+.pictures_logo_div{
+  border-left: 1px solid #969696;
+  height: 90.2%;
+  width:63%;
+  float: right;
+  padding: 3%;
+}
+
+.day_logo_images{
+  padding-top: 10px;
+  opacity: 0.40;
+}
+
+.pictures_logo_images{
+  width: 80%;
+  height: 32%;
+  opacity: 0.40;
+}
+
+.output_alignment{
+float: left;
+margin-left: 10%;
+margin-bottom: 20%;
+}
+.valueOfDay{
+  width: 10;
+  float: left;
+  margin-left: 39%;
+}
+
+.valueOfDayValue{
+  width: 10;
+  float: left;
+  margin-left: 1%;
+}
+
+.redClass{
+  display: block;
+  color: red;
+  font-weight:bold;
+}
+
+.output{
+  padding-top: 1.8%;
+  font-size: .75em;
+  float: right;
+  font-weight:bold;
+}
+
+.null{
+  float: left;
+}
+
+.str{
+  width: 15%;
+  float: left;
+  padding-left: 40%;
+}
+
+
+
+/*EXEPERIMENT Position_Point css */
+
+.position_point{
+  float: left;
+  margin-left: 1%;
+  width: 98%;
+  font-size: 1.3em;
+  text-align: center;
+   border: 1px solid #969696;
+
+  /*border: 1px solid #969696;*/
+  
+}
+
+.initialize_div{
+  float: left;
+  width: 30%;
+  padding-bottom: 1%;
+  border: 1px solid #969696;
+}
+
+.output_div{
+  float: left;
+  width: 37%;
+  margin-left: 1%;
+  border: 1px solid #969696;
+}
+
+.step_div{
+  float: left;
+  width: 30.5%;
+  margin-left: 1%;
+  border: 1px solid #969696;
+}
+
+
+.border_class{
+   border: 1px solid #969696;
+   background-color: #C8B560;
+}
+
+.value_variable{
+  margin-top: 7%;
+  font-size: .7em;
+}
+
+.x_y_align{
+  float: left;
+  margin-left: 10%;
+  padding-bottom: 10%;
+}
+
+.text_field1{
+    width: 50px;
+    height: 20px;
+    font-size: 1.06em;
+    font-weight: bold;
+    
+}
+
+.select_code{
+  border: 1px solid #969696;
+  float: left;
+  width: 99.50%;
+  text-align: center;
+  text-align: center;
+  background-color: #C8B560;
+}
+
+.type_of_examples{
+  float: left;
+  text-align: left;
+  font-size: .8em;
+  margin-top: 5%;
+  padding-left: 5%;
+  width: 94%;
+  
+}
+
+.if_else_list{
+    float: left;
+    border: 1px solid #969696;
+    padding: 2px 2px 2px 2px;
+    background: #DCDCDC;
+    font-size: .7em;
+    width:80%;
+    margin-top: 2%;
+    margin-left: 5%;    
+  }
+
+.button_if_else{
+  float: left;
+  margin-top: 8%;
+  margin-left: 33%;
+  border: 1px solid #969696;
+}
+
+/*.button_next_if{
+  float: right;
+}*/
+
+.local_variable{
+  float: left;
+  text-align: left;
+  font-size: .8em;
+  margin-top: 8%;
+  padding-left: 5%;
+  width: 94%; 
+}
+
+.flag_text{
+  float: left;
+  text-align: left;
+  font-size: .7em;
+  margin-top: 8%;
+  margin-left: 10%;
+  width: 89%;
+}
+
+.flag_text1{
+  float: left;
+  text-align: left;
+  font-size: .7em;
+  margin-top: 8%;
+  width: 17%;
+}
+
+.if_else_text{
+  float: left;
+  text-align: left;
+  font-size: .6em;
+  margin-top: 3%;
+  margin-left: 5%;
+}
+
+
+.if_else_text1{
+  font-weight: bold;
+}
+
+.if_else_text2{
+  width: 100%;
+  margin-left: 12.5%;
+  margin-top: 5px;
+  
+}
+
+.if_else_text3{
+  margin-left: 21.25%;
+  margin-top: 5px; 
+}
+.if_else_text4{
+  margin-top: 59%;
+}
+
+.if_else_text5{
+  margin-top: 2%;
+}
+
+
+.rectangle_image{
+  height: 50%;
+  width: 99%;
+}
+
+.myCanvas{
+  background: white;
+}
+
+.canvasDiv {
+position: absolute;
+border: 1px solid #969696;
+height: 81%;
+width: 36.4%;
+top: 16.8%;
+left: 31.55%;
+}
+

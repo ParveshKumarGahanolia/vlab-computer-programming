@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Expression Evaluation</title>
+<link rel="stylesheet" type="text/css" href="exp_evl.css" />
+<script>
+window.count=0;
+function disableElement()
+{
+document.getElementById("input_value_a").disabled=true;
+document.getElementById("input_value_b").disabled=true;
+document.getElementById("input_value_c").disabled=true;
+document.getElementById("input_value_d").disabled=true;
+document.getElementById("save_button").style.display="none";
+document.getElementById("edit_button").style.display="block"; 
+document.getElementById("start_button").disabled=false;
+document.getElementById("next_button").disabled=true;
+}
+
+function enableElement()
+{
+document.getElementById("input_value_a").disabled=false;
+document.getElementById("input_value_b").disabled=false;
+document.getElementById("input_value_c").disabled=false;
+document.getElementById("input_value_d").disabled=false;
+document.getElementById("save_button").style.display="block";
+document.getElementById("edit_button").style.display="none"; 
+document.getElementById("start_button").disabled=true;
+document.getElementById("next_button").disabled=true;
+}
+
+function click_start_button()
+ {
+document.getElementById("next_button").disabled=false;
+document.getElementById("expression_input_list").disabled=true;
+document.getElementById("start_button").style.display="none";
+document.getElementById("stop_button").style.display="block"; 
+document.getElementById("next_button").style.display="block";
+document.getElementById("edit_button").disabled=true;
+	var a_value = document.getElementById("input_value_a").value
+	var b_value = document.getElementById("input_value_b").value
+	var c_value = document.getElementById("input_value_c").value
+	var d_value = document.getElementById("input_value_d").value
+
+ 	var expression_from_textField = document.getElementById("expression_value").value
+
+ 	var after_replace_a= expression_from_textField.replace("a",a_value);
+ 	var after_replace_b=after_replace_a.replace("b",b_value);
+ 	var after_replace_c=after_replace_b.replace("c",c_value);
+ 	var after_replace_d=after_replace_c.replace("d",d_value);
+
+ 	
+
+	var input_after_changeInProperSyntex =  changeInput_to_properInput(after_replace_d)
+ 	
+
+ 	/*
+ 	document.getElementById('expression_result').innerHTML="[ "+input_after_changeInProperSyntex+" ]";
+	document.getElementById('expression_result').className = 'first_result_on_click_start_button'
+     */
+
+
+var iDiv = document.createElement('div');
+iDiv.textContent = "[ "+input_after_changeInProperSyntex+" ]";
+iDiv.id = 'child_div_in_result'+window.count;
+
+//iDiv.textContent = document.getElementById("expression_result").textContent
+iDiv.className = 'child_div_in_result';
+document.getElementById("expression_division").appendChild(iDiv);
+}
+
+function click_stop_button () 
+{
+document.getElementById("next_button").disabled=true;
+document.getElementById("expression_input_list").disabled=false;
+document.getElementById("start_button").style.display="block";
+document.getElementById("stop_button").style.display="none"; 
+document.getElementById("next_button").style.display="block";
+document.getElementById("edit_button").disabled=false;
+}
+
+function select_the_expression(expression_input_list) {
+document.getElementById("expression_value").value=expression_input_list;
+}
+
+function changeInput_to_properInput(input_for_change)
+{ 
+	var input_string = "";
+	for (var i = 0; i <input_for_change.length ; i++) {
+		input_string = input_string + input_for_change[i]+" ";
+	};
+
+var valuek3 = input_string.replace(/\s+/g, ' ');
+var patternk1 = /\d\d/;
+/*
+var matchesk1 = valuek3.match(patternk1);
+var valuek1 = matchesk1.length; */
+
+var n=0;
+while(n<5){
+var matchesk1 = valuek3.match(patternk1);
+var valuek1 = matchesk1[0];
+var valuek2 = valuek1.replace(/\s+/g,'');
+valuek3 = input_string.replace(valuek1,valuek2);
+i++;
+}
+
+
+//kpattern = step1.replace(/\d\s\d/g, /\d\d/);  
+
+//kmatches = step1.match(kpattern);
+//var knum_value = kmatches[0];
+//var step2 = step1.replace(/\s+/g,' ');
+alert(valuek3);
+//return step1;
+
+}
+
+function expression_evaluation(){	
+var cid = document.getElementById("child_div_in_result"+window.count).textContent;	
+var string = cid;
+var pattern = /\(([^)]+)\)/;
+matches = string.match(pattern);
+var num_value = matches[0]
+var	num_value_for_replace = eval(matches[0])
+newStr = string.replace(num_value,num_value_for_replace)
+window.count = window.count + 1;
+return newStr;
+}
+
+function click_next_button(){
+var iDiv = document.createElement('div');
+iDiv.textContent = expression_evaluation();
+iDiv.id = 'child_div_in_result'+window.count;
+iDiv.className = 'child_div_in_result';
+document.getElementById("expression_division").appendChild(iDiv);
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<div id="header">Experiments on Operaters</div>
+
+<div id="sub_header">
+
+	<select class="operater_type_list" >
+	<option value="Arithmetic">Arithmetic</option>
+    <option value="Logical">Logical</option>
+    <option value="Bitwise">Bitwise</option>
+    </select>
+
+	<select class="operater_type_list"  >
+	<option value="integer">Integer</option>
+    </select>
+
+</div>
+
+<div id="main_body">
+	<div class="input_division">
+
+		<div class="initialize_the_velue">
+		<div class="box_header" >Initialize the Values</div>
+			<div>a = <input  class="input_value_field" disabled type="text" name="a_value_input" value="2" id = "input_value_a">
+			b = <input  class="input_value_field"  disabled type="text" name="b_value_input" value="5" id = "input_value_b"></div>
+
+			<div>c = <input  class="input_value_field" disabled type="text" name="c_value_input" value="10" id = "input_value_c">
+			d = <input  class="input_value_field" disabled  type="text" name="d_value_input" value="11" id = "input_value_d"></div>
+			<div><button  class="edit_save_button" style="display:none;" onclick="disableElement()" type="submit"  id = "save_button">Save</button></div>
+			<div><button  class="edit_save_button"  onclick="enableElement()" type="submit" id="edit_button">Edit</button></div>
+		</div>
+
+		<div class="select_the_expression">
+		<div class="box_header" >Select the Expression</div>
+			<div class="any_text" >Expression : </div>
+			<div>
+				<select class="expression_type_input_list" name="expression_input_list" id="expression_input_list" onclick="select_the_expression(this.value)" >
+         		<option value="a + b - c">a + b - c</option>
+                <option value="a + b / c">a + b / c</option>
+                <option value="( a + b ) / c">( a + b ) / c</option>
+                <option value="( a + b ) * c - d">( a + b ) * c - d</option>
+                <option value="( a + b ) * ( c - d )">( a + b ) * ( c - d )</option>
+                <option value="a * d % ( c - b ) * c - a * b">a * d % ( c - b ) * c - a * b</option>
+                </select>
+            </div>
+                
+            <div><input  class="expression_type_input_field" type="text" name="expression_value_input"  id = "expression_value" value="a + b - c"></div>
+
+            <div><button  class="start_next_button" onclick="click_start_button()" type="submit" id="start_button" >Start</button>
+            </div>
+            <div><button  class="start_next_button" style="display:none;" onclick="click_stop_button()" type="submit" id="stop_button" >Stop</button>
+            </div>
+            <div><button  class="start_next_button" onclick="click_next_button()" disabled type="submit" id ="next_button">Next</button></div>
+		</div>
+
+	</div>
+
+
+	<div class="expression_division" id="expression_division">
+		<div class="box_header" >Evaluation Flow of Expression</div>
+		<div  id="expression_result"></div>
+	</div>
+	<div class="output_division">
+		<div class="select_the_expression">
+			<div class="box_header" >Step By Step Reasoning</div>
+			<div><textarea class="reasoning_area" name="comment" readonly>
+		</textarea></div>
+		</div>
+
+		<div class="select_the_expression">
+			<div class="box_header" >Current Operation</div>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
