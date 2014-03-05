@@ -58,7 +58,7 @@ window.view = {
 		document.getElementById(id).className = className
 	},
 	// applyColorClass: adds new color class to a element.
-    applyColorClass: function (id, colorClass) {
+	applyColorClass: function (id, colorClass) {
 		document.getElementById(id).classList.add(colorClass);
 	},
 	// removeColorClass: removes color class from element.
