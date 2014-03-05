@@ -69,7 +69,7 @@ window.view = {
 		document.getElementById(id1).style.display = 'none';
 		document.getElementById(id2).style.display = 'block';
 	},
-	// setString: erase string from a given element.
+	// eraseString: erase string from a given element.
 	eraseString: function (id) {
 		document.getElementById(id).innerHTML = '';
 	},
