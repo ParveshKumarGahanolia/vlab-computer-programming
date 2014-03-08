@@ -34,24 +34,24 @@ window.view = {
  		document.getElementById(id).innerHTML = innerHTML;
  	},
  	// enableElement: makes element enable.
-    enableElement: function (id) {
-    	document.getElementById(id).disabled = false;
-    },
-    // disableElement: makes element disable.
-    disableElement: function (id) {
-    	document.getElementById(id).disabled = true;
-    },
-    // replaceElement: replace one element by another element.
-    replaceElement: function (id1, id2) {
-    	document.getElementById(id1).style.display = 'none';
-    	document.getElementById(id2).style.display = 'block';  	 
-    },
-    // changeClass: changes class name of a element.
+	enableElement: function (id) {
+    		document.getElementById(id).disabled = false;
+	},
+	 // disableElement: makes element disable.
+    	disableElement: function (id) {
+    		document.getElementById(id).disabled = true;
+    	},
+    	// replaceElement: replace one element by another element.
+    	replaceElement: function (id1, id2) {
+    		document.getElementById(id1).style.display = 'none';
+    		document.getElementById(id2).style.display = 'block';  	 
+    	},
+    	// changeClass: changes class name of a element.
 	changeClass: function(id, className) {
 		document.getElementById(id).className = className
 	},
-    // setValue: set given value to a element.
-    setValue: function (id, value) {
+    	// setValue: set given value to a element.
+    	setValue: function (id, value) {
 		document.getElementById(id).value = value;
 	},
 	// getValue: get value from element.
