@@ -13,6 +13,7 @@ window.view = {
 	nextOfnextSiblingElement: new Object(), // // Object value of next of next sibling.
 	canvasContext: '', // canvasContext have many properties and methods for drawing paths, boxes, circles, text, images, and more.
 	canvas: new Object(), // Object value of canvas.
+	selectedLoop: new Object(), // Object of selected list.
 	// addClickEvent: add EventListener to other methods.
 	addClickEvent: function (id, method) {
 		var element = document.getElementById(id);
@@ -20,18 +21,18 @@ window.view = {
 	},
 	// activateEvents: calls addClickEvent method to add EventListener to other methods.
 	activateEvents: function() {
-		//this.addClickEvent('ifElseList', function() { view.replaceElement('ifElseIfCode','ifElseCode') });
-		//this.addClickEvent('ifElseIfList', function() { view.replaceElement('ifElseCode','ifElseIfCode') });
+		this.addClickEvent('ifElseList', function() { view.showExecutionSection() });
+		this.addClickEvent('ifElseIfList', function() { view.showExecutionSection() });
 		this.addClickEvent('okBtnId', function() { view.validationInput() });
 		this.addClickEvent('startBtnId', function() { view.startExecution() });
 		this.addClickEvent('stopBtnId', function() { view.stopExecution() });
-		this.addClickEvent('nextBtnId', function() { view.continueExecutionIfElse() });
+		this.addClickEvent('nextBtnId', function() { view.nextStepsOfExecution() });
 	},
 	// getSelectedLoopId: returns id of selected option in list.
 	getSelectedLoopId: function(id) {
-		var list_of_loop = document.getElementById(id);
-		var selected_loop = list_of_loop.options[list_of_loop.selectedIndex].id;
-		return selected_loop;
+		var listOfLoop = document.getElementById(id);
+		var selectedLoop = listOfLoop.options[listOfLoop.selectedIndex];
+		return selectedLoop;
 	},
 	// changeClass: changes class name of a element.
 	changeClass: function(id, className) {
@@ -82,6 +83,44 @@ window.view = {
  	setInnerHtml: function (id, innerText) {
  		document.getElementById(id).innerHTML = innerText;
  	},
+ 	// hideCode: hides code content that is not selected in drop down list. 
+ 	hideCode: function(loopId) {
+		var node = document.getElementById(loopId);
+		var allChild = node.childNodes;
+		for( i = 1 ; i < allChild.length ; i+=2) {
+			this.applyColorClass(allChild[i].id, 'hide');
+		}
+	},
+	// showCode: shows code content that is selected in drop down list.
+ 	showCode: function(loopId) {
+		var node = document.getElementById(loopId);
+		var allChild = node.childNodes;
+		for( i = 1 ; i < allChild.length ; i+=2) {
+			this.removeColorClass(allChild[i].id, 'hide');
+		}
+	},
+	// showExecutionSection: calls showCode and hideCode methods when drop down list is selected.
+	showExecutionSection: function() {
+		this.selectedLoop = this.getSelectedLoopId('loopList')
+		var ifElseCodeContent = document.getElementById('codeContentIfElse1Id');
+		var ifElseIfCodeContent = document.getElementById('codeContentIfElseIf1Id');
+		if (this.selectedLoop.id === 'ifElseList') {
+			if (ifElseCodeContent.className == 'hide') {
+				this.showCode('ifElseCode');
+			}
+			if (ifElseIfCodeContent.className !== 'hide') {
+				this.hideCode('ifElseIfCode');
+			}
+		}
+		if (this.selectedLoop.id === 'ifElseIfList') {
+			if (ifElseIfCodeContent.className === 'hide') {
+				this.showCode('ifElseIfCode');
+			}
+			if (ifElseCodeContent.className !== 'hide') {
+				this.hideCode('ifElseCode');
+			}	
+		}
+	},
  	// changeFlagValue: change flag value to 1 when point is inside of square.
  	changeFlagValue: function (id1, id2, value) {
 		this.setInnerHtml(id1, value);
@@ -117,6 +156,8 @@ window.view = {
  	resetVariables: function () {
  		model.valueOfX = 210;
 		model.valueOfY = 210;
+		this.currentSiblingElement = '';
+		this.nextSiblingElement = '';
  	},
  	// clearOutputValues: clear all output values that displayed during the execution.
  	clearOutputValues: function () {
@@ -218,22 +259,24 @@ window.view = {
 			alert('Enter Numeric Values Only');
 			return false;
 		}
-		else {
-			model.valueOfX = Number(valueOfX);
-			model.valueOfY = Number(valueOfY);
-			this.disableElement('loopList');
-			this.disableElement('textFieldXId');
-			this.disableElement('textFieldYId');
-			this.enableElement('startBtnId');
-			this.changeClass('startBtnId', 'button startButton margin15');
-			this.disableElement('okBtnId');
-			this.changeClass('okBtnId', 'buttonDisable okButton');
-			this.changeClass('loopList', 'buttonDisable expList');
-			this.setInnerHtml('xInnerText', model.valueOfX);
-			this.setInnerHtml('yInnerText', model.valueOfY);
-			this.drawCircle(model.valueOfX, model.valueOfY, '#FF2400');
-			this.displayTextWithColour('(x, y)', model.valueOfX + 10, model.valueOfY, '#FF2400');
+		if (this.selectedLoop.id !== 'ifElseList' && this.selectedLoop.id !== 'ifElseIfList') {
+			alert('Select any one option from drop down list.');
+			return false;
 		}
+		model.valueOfX = Number(valueOfX);
+		model.valueOfY = Number(valueOfY);
+		this.disableElement('loopList');
+		this.disableElement('textFieldXId');
+		this.disableElement('textFieldYId');
+		this.enableElement('startBtnId');
+		this.changeClass('startBtnId', 'button startButton margin15');
+		this.disableElement('okBtnId');
+		this.changeClass('okBtnId', 'buttonDisable okButton');
+		this.changeClass('loopList', 'buttonDisable expList');
+		this.setInnerHtml('xInnerText', model.valueOfX);
+		this.setInnerHtml('yInnerText', model.valueOfY);
+		this.drawCircle(model.valueOfX, model.valueOfY, '#FF2400');
+		this.displayTextWithColour('(x, y)', model.valueOfX + 10, model.valueOfY, '#FF2400');
     },
     // startExperiment: work to start code execution.
 	startExecution: function () {
@@ -243,14 +286,28 @@ window.view = {
 		this.enableElement('stopBtnId');
 		this.enableElement('nextBtnId');
 		this.disableElement('startBtnId');
-		this.applyColorClass('codeContentIfElse1Id', 'redClass');
+		if (this.selectedLoop.id === 'ifElseList') {
+			this.applyColorClass('codeContentIfElse1Id', 'redClass');
+		}
+		if (this.selectedLoop.id === 'ifElseIfList') {
+			this.applyColorClass('codeContentIfElseIf1Id', 'redClass');
+		}
+	},
+	// nextStepsOfExecution: calls executionOfIfElse and executionOfIfElseIfElse methods according selected option of drop down list.
+	nextStepsOfExecution: function () {
+		if (this.selectedLoop.id === 'ifElseList') {
+			this.executionOfIfElse();
+		}
+		if (this.selectedLoop.id === 'ifElseIfList') {
+			this.executionOfIfElseIfElse();
+		}
 	},
 	// stopExperiment: stop code execution at any point.
 	stopExecution: function () {
 		this.endOfExecution();
 	},
 	// continueExecutionIfElse: shows code execution and gives final result at end of code.
-	continueExecutionIfElse: function () {
+	executionOfIfElse: function () {
 		this.currentSiblingElement = this.getElementByClass('redClass');
 		this.nextSiblingElement = this.getNextSiblingElement(this.currentSiblingElement);
 		this.nextOfnextSiblingElement = this.getNextSiblingElement(this.nextSiblingElement);
@@ -318,95 +375,52 @@ window.view = {
 			}
 		}
 	},
-
-	executionIfElseIfElse: function () {
+	// executionOfIfElseIfElse: shows code execution and gives final result at end of code.
+	executionOfIfElseIfElse: function () {
 		this.currentSiblingElement = this.getElementByClass('redClass');
 		this.nextSiblingElement = this.getNextSiblingElement(this.currentSiblingElement);
 		this.nextOfnextSiblingElement = this.getNextSiblingElement(this.nextSiblingElement);
-		if (this.nextSiblingElement.id === 'codeContentIfElseIf2Id') 
-		{
+		if (this.nextSiblingElement.id === 'codeContentIfElseIf2Id') {
 			this.codeExecutionWithColour();
 			this.setInnerHtml('flag1Id', 'flag = ');
 		}
-
-		if (this.nextSiblingElement.id === 'codeContentIfElseIf3Id') 
-		{		
+		if (this.nextSiblingElement.id === 'codeContentIfElseIf3Id')			
 			this.codeExecutionWithColourAndId('codeContentIfElseIf3aId');
-		}
-
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf3bId' && model.valueOfX < 100) 
-		{
 			this.changeFlagValue('flagValue1', 'codeContentIfElseIf5Id', '0');
-		}
-
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf3bId' && model.valueOfX > 350) 
-		{			
 			this.codeExecutionWithColourAndId('codeContentIfElseIf3cId');
-		}
-
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf3dId' && model.valueOfX > 350) 
-		{			
 			this.changeFlagValue('flagValue1', 'codeContentIfElseIf5Id', '0');
-		}
-
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf3bId' && (100 <= model.valueOfX) && (model.valueOfX <= 350)) 
-		{
 			this.codeExecutionWithColourAndId('codeContentIfElseIf3cId');
-		}
-			
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf3dId' && (100 <= model.valueOfX) && (model.valueOfX <= 350)) 
-		{
 			this.codeExecutionWithColourAndId('codeContentIfElseIf7aId');
-		}
-
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf7bId' && model.valueOfY < 100) 
-		{
 			this.changeFlagValue('flagValue1', 'codeContentIfElseIf9Id', '0');
-		}
-
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf7bId' && model.valueOfY > 400) 
-		{
 			this.codeExecutionWithColourAndId('codeContentIfElseIf7cId');
-		}
-		
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf7dId' && model.valueOfY > 400) 
-		{
 			this.changeFlagValue('flagValue1', 'codeContentIfElseIf9Id', '0');
-		}
-
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf7bId' && (100 <= model.valueOfY) && (model.valueOfY <= 400)) 
-		{
 			this.codeExecutionWithColourAndId('codeContentIfElseIf7cId');
-		}
-
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf7dId' && (100 <= model.valueOfX) && (model.valueOfX <= 350) && (100 <= model.valueOfY) && (model.valueOfY <= 400)) 
-		{
 			this.codeExecutionWithColourAndId('codeContentIfElseIf11Id');
+		if ((this.nextSiblingElement.id === 'codeContentIfElseIf12Id' || this.nextSiblingElement.id === 'codeContentIfElseIf14Id' || this.nextSiblingElement.id === 'codeContentIfElseIf16Id') && (100 <= model.valueOfX) && (model.valueOfX <= 350) && (100 <= model.valueOfY) && (model.valueOfY <= 400))	{
+			this.changeFlagValue('flagValue1', this.nextOfnextSiblingElement.id, '1');
+			if ((this.nextSiblingElement.id === 'codeContentIfElseIf16Id') && (100 <= model.valueOfX) && (model.valueOfX <= 350) && (100 <= model.valueOfY) && (model.valueOfY <= 400)) {
+				this.displayTextWithColour('Output: INSIDE', 100, 50, '#FF2400');
+			}
 		}
-
-		if ((this.nextSiblingElement.id === 'codeContentIfElseIf12Id' || this.nextSiblingElement.id === 'codeContentIfElseIf14Id' || this.nextSiblingElement.id === 'codeContentIfElseIf16Id') && (100 <= model.valueOfX) && (model.valueOfX <= 350) && (100 <= model.valueOfY) && (model.valueOfY <= 400))
-		{
-			this.codeExecutionWithColour();
-			this.setInnerHtml('flagValue1', '1');
-		}
-
 		if (this.nextSiblingElement.id ==='codeContentIfElseIf6Id' || this.nextSiblingElement.id ==='codeContentIfElseIf10Id') 
-		{
 			this.codeExecutionWithColourAndId('codeContentIfElseIf15Id');
-		}
-
 		if (this.nextSiblingElement.id === 'codeContentIfElseIf16Id' && !((100 <= model.valueOfX) && (model.valueOfX <= 350) && (100 <= model.valueOfY) && (model.valueOfY <= 400))) 
-		{
 			this.codeExecutionWithColourAndId('codeContentIfElseIf19Id');
-		}
-
-		if (this.nextSiblingElement.id === 'codeContentIfElseIf20Id') 
-		{
+		if (this.nextSiblingElement.id === 'codeContentIfElseIf20Id') {
 			this.codeExecutionWithColourAndId('codeContentIfElseIf21Id');
+			this.displayTextWithColour('Output: OUTSIDE', 100, 50, '#FF2400');
 		}
-
-		if (this.nextSiblingElement.id === 'codeContentIfElseIf18Id' || this.nextSiblingElement.id === 'codeContentIfElseIf22Id') 
-		{
+		if (this.nextSiblingElement.id === 'codeContentIfElseIf18Id' || this.nextSiblingElement.id === 'codeContentIfElseIf22Id') {
 			this.codeExecutionWithColourAndId('codeContentIfElseIf23Id');
 			alert('Code running is Over !');
 			this.endOfExecution();

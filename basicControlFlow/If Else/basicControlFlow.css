@@ -459,6 +459,12 @@ body {
     float: left;
 }
 
+.left40{
+    width: 100%;
+    float: left;
+    text-align: left;
+}
+
 .local_variable{
   float: left;
   text-align: left;
