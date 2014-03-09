@@ -38,21 +38,21 @@ window.view = {
 	changeClass: function(id, className) {
 		document.getElementById(id).className = className
 	},
-    // enableElement: makes element enable.
-    enableElement: function (id) {
-    	document.getElementById(id).disabled = false;
-    },
-    // disableElement: makes element disable.
-    disableElement: function (id) {
-    	document.getElementById(id).disabled = true;
-    },
-    // replaceElement: replace one element by another element.
-    replaceElement: function (id1, id2) {
-    	document.getElementById(id1).style.display = 'none';
-    	document.getElementById(id2).style.display = 'block';  	 
-    },
+	 // enableElement: makes element enable.
+	enableElement: function (id) {
+		document.getElementById(id).disabled = false;
+	},
+	// disableElement: makes element disable.
+	disableElement: function (id) {
+		document.getElementById(id).disabled = true;
+	},
+	// replaceElement: replace one element by another element.
+	replaceElement: function (id1, id2) {
+		document.getElementById(id1).style.display = 'none';
+		document.getElementById(id2).style.display = 'block';  	 
+	},
 	// setValue: set given value to a element.
-    setValue: function (id, value) {
+	setValue: function (id, value) {
 		document.getElementById(id).value = value;
 	},
 	// getValue: get value from element.
@@ -80,11 +80,11 @@ window.view = {
 		return element[0];
 	},
 	// setInnerHtml: set innerText to a element.
- 	setInnerHtml: function (id, innerText) {
- 		document.getElementById(id).innerHTML = innerText;
- 	},
- 	// hideCode: hides code content that is not selected in drop down list. 
- 	hideCode: function(loopId) {
+	setInnerHtml: function (id, innerText) {
+		document.getElementById(id).innerHTML = innerText;
+	},
+	// hideCode: hides code content that is not selected in drop down list. 
+	hideCode: function(loopId) {
 		var node = document.getElementById(loopId);
 		var allChild = node.childNodes;
 		for( i = 1 ; i < allChild.length ; i+=2) {
@@ -92,7 +92,7 @@ window.view = {
 		}
 	},
 	// showCode: shows code content that is selected in drop down list.
- 	showCode: function(loopId) {
+	showCode: function(loopId) {
 		var node = document.getElementById(loopId);
 		var allChild = node.childNodes;
 		for( i = 1 ; i < allChild.length ; i+=2) {
@@ -121,28 +121,28 @@ window.view = {
 			}	
 		}
 	},
- 	// changeFlagValue: change flag value to 1 when point is inside of square.
- 	changeFlagValue: function (id1, id2, value) {
+	// changeFlagValue: change flag value to 1 when point is inside of square.
+	changeFlagValue: function (id1, id2, value) {
 		this.setInnerHtml(id1, value);
 		this.codeExecutionWithColourAndId(id2);
- 	},
- 	// setFlagText: set flag text in elements during code execution.
- 	setFlagText: function () {
- 		this.codeExecutionWithColour();
+	},
+	// setFlagText: set flag text in elements during code execution.
+	setFlagText: function () {
+		this.codeExecutionWithColour();
 		this.setInnerHtml('flag1Id', 'flag_1 = ');
 		this.setInnerHtml('flag2Id', 'flag_2 = ');
 		this.setInnerHtml('flag3Id', 'flag_3 = ');
 		this.setInnerHtml('flag4Id', 'flag_4 = ');
- 	},
- 	// setFlagText: set flag value in elements during code execution.
- 	setFlagValue: function () {
- 		this.codeExecutionWithColour();
+	},
+	// setFlagText: set flag value in elements during code execution.
+	setFlagValue: function () {
+		this.codeExecutionWithColour();
 		this.setInnerHtml('flagValue1', '0');
 		this.setInnerHtml('flagValue2', '0');
 		this.setInnerHtml('flagValue3', '0');
 		this.setInnerHtml('flagValue4', '0');
- 	},
- 	// codeExecutionWithColour: shows execution of code by changing color in code Content.
+	},
+	// codeExecutionWithColour: shows execution of code by changing color in code Content.
 	codeExecutionWithColour: function () {
 		this.removeColorClass(this.currentSiblingElement.id, 'redClass');
 		this.applyColorClass(this.nextSiblingElement.id, 'redClass');
@@ -153,32 +153,32 @@ window.view = {
 		this.applyColorClass(id, 'redClass');
 	},
 	// resetVariables: reset all variables to it's initial state. 
- 	resetVariables: function () {
- 		model.valueOfX = 210;
+	resetVariables: function () {
+		model.valueOfX = 210;
 		model.valueOfY = 210;
 		this.currentSiblingElement = '';
 		this.nextSiblingElement = '';
- 	},
+	},
  	// clearOutputValues: clear all output values that displayed during the execution.
- 	clearOutputValues: function () {
- 		this.setInnerHtml('xInnerText', '');
- 		this.setInnerHtml('yInnerText', '');
+	clearOutputValues: function () {
+		this.setInnerHtml('xInnerText', '');
+		this.setInnerHtml('yInnerText', '');
 		this.setInnerHtml('flag1Id', '');
 		this.setInnerHtml('flag2Id', '');
- 		this.setInnerHtml('flag3Id', '');
- 		this.setInnerHtml('flag4Id', '');
- 		this.setInnerHtml('flagValue1', '');
+		this.setInnerHtml('flag3Id', '');
+		this.setInnerHtml('flag4Id', '');
+		this.setInnerHtml('flagValue1', '');
 		this.setInnerHtml('flagValue2', '');
- 		this.setInnerHtml('flagValue3', '');
- 		this.setInnerHtml('flagValue4', '');
- 	},
- 	// resetTextFieldValue: reset text field to their initial state.
- 	resetTextFieldValue: function () {
- 		this.setValue('textFieldXId', 210);
- 		this.setValue('textFieldYId', 210);
- 	},
- 	// resetButtonAndTextField: reset button it's initial state and do text field enable.
- 	resetButtonAndTextField: function () {
+		this.setInnerHtml('flagValue3', '');
+		this.setInnerHtml('flagValue4', '');
+	},
+	// resetTextFieldValue: reset text field to their initial state.
+	resetTextFieldValue: function () {
+		this.setValue('textFieldXId', 210);
+		this.setValue('textFieldYId', 210);
+	},
+	// resetButtonAndTextField: reset button it's initial state and do text field enable.
+	resetButtonAndTextField: function () {
 		this.enableElement('textFieldXId');
 		this.enableElement('textFieldYId');
 		this.enableElement('okBtnId');
@@ -203,44 +203,44 @@ window.view = {
 		var idOfRedText = this.getElementByClass('redClass').id;
 		this.removeColorClass(idOfRedText, 'redClass');
 	},
- 	// getCanvas: get canvas and canvasContext as a Object.
+	// getCanvas: get canvas and canvasContext as a Object.
 	getCanvas: function () {
 		this.canvas = document.getElementById('myCanvas');
 		this.canvasContext = this.canvas.getContext('2d');
 	},
 	// drawFillRectangle: draws fill rectangle on canvasContext.
- 	drawFillRectangle: function () {
- 		this.getCanvas();
- 		this.canvasContext.fillStyle = '#C2D995';
- 		this.canvasContext.fillRect (100, 100, 250, 300);
- 		this.canvasContext.strokeStyle = '#000000';
- 		this.canvasContext.rect(100, 100, 250, 300);
- 		this.canvasContext.stroke();	
- 	},
- 	// drawCircle: draws circle on canvasContext according given x and y coordinates.
-  	drawCircle: function (x, y, colour) {
- 		this.canvasContext.beginPath();
- 		this.canvasContext.fillStyle = colour; 
- 		this.canvasContext.arc(x, y, 3, 0, 2 * Math.PI, true);
- 		this.canvasContext.fill();
- 	},
- 	// displayText: draws given text on canvasContext according given x and y coordinates.
-    displayText: function (text, x, y) {
-    	this.canvasContext.beginPath();
-       	this.canvasContext.font = 'italic 20px Arial';
+	drawFillRectangle: function () {
+		this.getCanvas();
+		this.canvasContext.fillStyle = '#C2D995';
+		this.canvasContext.fillRect (100, 100, 250, 300);
+		this.canvasContext.strokeStyle = '#000000';
+		this.canvasContext.rect(100, 100, 250, 300);
+		this.canvasContext.stroke();	
+	},
+	// drawCircle: draws circle on canvasContext according given x and y coordinates.
+	drawCircle: function (x, y, colour) {
+		this.canvasContext.beginPath();
+		this.canvasContext.fillStyle = colour; 
+		this.canvasContext.arc(x, y, 3, 0, 2 * Math.PI, true);
+		this.canvasContext.fill();
+	},
+	// displayText: draws given text on canvasContext according given x and y coordinates.
+	displayText: function (text, x, y) {
+		this.canvasContext.beginPath();
+		this.canvasContext.font = 'italic 20px Arial';
 		this.canvasContext.fillText(text, x, y);
-    },
-    // displayTextWithColour: draws given text  with colour on canvasContext according given x and y coordinates.
-    displayTextWithColour: function (text, x, y, color) {
-    	this.canvasContext.beginPath();
-       	this.canvasContext.font = 'italic 20px Arial';
-       	this.canvasContext.fillStyle = color;
+	},
+	// displayTextWithColour: draws given text  with colour on canvasContext according given x and y coordinates.
+	displayTextWithColour: function (text, x, y, color) {
+		this.canvasContext.beginPath();
+		this.canvasContext.font = 'italic 20px Arial';
+		this.canvasContext.fillStyle = color;
 		this.canvasContext.fillText(text, x, y);		
-    },
-    // displayFigures: display figures on canvasContext according given x and y coordinates.
-    displayFigures: function () {
-    	this.drawFillRectangle();
-    	this.drawCircle(100, 100, '#000000');
+	},
+	// displayFigures: display figures on canvasContext according given x and y coordinates.
+	displayFigures: function () {
+		this.drawFillRectangle();
+		this.drawCircle(100, 100, '#000000');
 		this.drawCircle(350, 100, '#000000');
 		this.drawCircle(100, 400, '#000000');
 		this.drawCircle(350, 400, '#000000');
@@ -249,13 +249,13 @@ window.view = {
 		this.displayText('(x3, y3)', 340, 420);
 		this.displayText('(x4, y4)', 90, 420);
 		this.canvasContext.save();
-    },
+	},
 	/* validationInput: check validation of input that is given by user and if input value is valid 
 	then make text field and ok button disable and make start button enable. */
 	validationInput: function () {
-    	var valueOfX = this.getValue('textFieldXId');
-    	var valueOfY = this.getValue('textFieldYId');
-    	if ((valueOfX === '' || valueOfY === '') || isNaN(valueOfX) || isNaN(valueOfY)) {
+		var valueOfX = this.getValue('textFieldXId');
+		var valueOfY = this.getValue('textFieldYId');
+		if ((valueOfX === '' || valueOfY === '') || isNaN(valueOfX) || isNaN(valueOfY)) {
 			alert('Enter Numeric Values Only');
 			return false;
 		}
@@ -277,8 +277,8 @@ window.view = {
 		this.setInnerHtml('yInnerText', model.valueOfY);
 		this.drawCircle(model.valueOfX, model.valueOfY, '#FF2400');
 		this.displayTextWithColour('(x, y)', model.valueOfX + 10, model.valueOfY, '#FF2400');
-    },
-    // startExperiment: work to start code execution.
+	},
+	// startExperiment: work to start code execution.
 	startExecution: function () {
 		this.changeClass('startBtnId', 'buttonDisable startButton margin15 hide');
 		this.changeClass('nextBtnId', 'button nextButton margin15');
