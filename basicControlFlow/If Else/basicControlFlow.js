@@ -208,9 +208,20 @@ window.view = {
 		this.canvas = document.getElementById('myCanvas');
 		this.canvasContext = this.canvas.getContext('2d');
 	},
+	drawDots: function () {
+		var xAxis;
+		var yAxis;
+		this.getCanvas();
+		this.canvasContext.fillStyle = '#FF2400';
+		for ( yAxis = 0 ; yAxis <= 500 ; yAxis += 10 ) {
+			for ( xAxis = 0 ; xAxis <= 450 ; xAxis += 10 ) {
+				this.canvasContext.rect(xAxis, yAxis, 1, 1);
+			}
+		}
+		this.canvasContext.fill();
+	},
 	// drawFillRectangle: draws fill rectangle on canvasContext.
 	drawFillRectangle: function () {
-		this.getCanvas();
 		this.canvasContext.fillStyle = '#C2D995';
 		this.canvasContext.fillRect (100, 100, 250, 300);
 		this.canvasContext.strokeStyle = '#000000';
@@ -239,6 +250,7 @@ window.view = {
 	},
 	// displayFigures: display figures on canvasContext according given x and y coordinates.
 	displayFigures: function () {
+		this.drawDots();
 		this.drawFillRectangle();
 		this.drawCircle(100, 100, '#000000');
 		this.drawCircle(350, 100, '#000000');
