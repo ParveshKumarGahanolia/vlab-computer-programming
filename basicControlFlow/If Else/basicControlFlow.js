@@ -223,7 +223,7 @@ window.view = {
 	// drawFillRectangle: draws fill rectangle on canvasContext.
 	drawFillRectangle: function () {
 		this.canvasContext.fillStyle = '#C2D995';
-		this.canvasContext.fillRect (100, 100, 250, 300);
+		this.canvasContext.fillRect (100, 100, 250, 300); // 100 is value of x and y cordinate, 250 is width and 300 is hight of canvas. 
 		this.canvasContext.strokeStyle = '#000000';
 		this.canvasContext.rect(100, 100, 250, 300);
 		this.canvasContext.stroke();	
@@ -252,11 +252,11 @@ window.view = {
 	displayFigures: function () {
 		this.drawDots();
 		this.drawFillRectangle();
-		this.drawCircle(100, 100, '#000000');
-		this.drawCircle(350, 100, '#000000');
-		this.drawCircle(100, 400, '#000000');
-		this.drawCircle(350, 400, '#000000');
-		this.displayText('(x1, y1)', 90, 90);
+		this.drawCircle(100, 100, '#000000'); // 100 is x coordinate value and another 100 is y coordinate value.
+		this.drawCircle(350, 100, '#000000'); // 350 is x coordinate value and another 100 is y coordinate value.
+		this.drawCircle(100, 400, '#000000'); // 100 is x coordinate value and another 400 is y coordinate value.
+		this.drawCircle(350, 400, '#000000'); // 350 is x coordinate value and another 400 is y coordinate value.
+		this.displayText('(x1, y1)', 90, 90); // // 90 is x coordinate value and another 90 is y coordinate value.
 		this.displayText('(x2, y2)', 340, 90);
 		this.displayText('(x3, y3)', 340, 420);
 		this.displayText('(x4, y4)', 90, 420);
@@ -444,7 +444,7 @@ window.view = {
 		this.displayFigures();
 	}
 }
-// onload function: call init method on window onload.
+// onload function: calls init method on window onload.
 window.onload = function () { 
 	window.view.init();
 }
