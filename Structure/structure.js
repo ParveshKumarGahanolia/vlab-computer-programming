@@ -20,25 +20,25 @@ window.view = {
         'They hired a software programmer, Ravi.</br>' +
         'He suggested that five pieces of data had to be maintained in every account.</br></br>' +
         'They are :</br>' + 
-        '   1)Account type, either checking or savings</br>' +
-        '   2)Account holder name</br>' +
-        '   3)Branch in which the account is based</br>' +
-        '   4)A unique account number</br>' +
-        '   5)The current balance in the account</br></br>' +
+        '&emsp;1)Account type, either checking or savings</br>' +
+        '&emsp;2)Account holder name</br>' +
+        '&emsp;3)Branch in which the account is based</br>' +
+        '&emsp;4)A unique account number</br>' +
+        '&emsp;5)The current balance in the account</br></br>' +
         'Ravi decides that using different variables to represent all this data would be messy and inefficient.</br>' +
         'He decides that it would be better to represent the account\'s variables with the help of a structure.</br></br>' +
         'Help Ravi write an account structure with the following variables:</br>' +
-        '   char type:(max size 10)</br>' +
-        '   char holder:(max size 30)</br>' +
-        '   char branch:(max size 20)</br>' +
-        '   char no:(account number,length 10)</br>' +
-        '   unsigned int bal (stores current balance):</br></br>' +
+        '&emsp;char type:(max size 10)</br>' +
+        '&emsp;char holder:(max size 30)</br>' +
+        '&emsp;char branch:(max size 20)</br>' +
+        '&emsp;char no:(account number,length 10)</br>' +
+        '&emsp;unsigned int bal (stores current balance):</br></br>' +
         'Example of an employee structure:</br>' +
-        '   struct database {</br>' +  
-        '   unsigned int id_number;</br>' +  
-        '   unsigned int age;</br>' +  
-        '   unsigned int salary;</br>' +
-        '   };</br>' +
+        '&emsp;struct database {</br>' +  
+        '&emsp;unsigned int id_number;</br>' +  
+        '&emsp;unsigned int age;</br>' +  
+        '&emsp;unsigned int salary;</br>' +
+        '&emsp;};</br>' +
         'Now define an Account structure below:</br>',
     instruction2: 'Let us say we are opening an account for Suresh We will simply say:</br></br>' +
         'struct account Suresh;</br></br>' +
@@ -52,20 +52,20 @@ window.view = {
         'and shyam as two times account balance of ram. Assume that account type is created.</br></br>' +
         '//Previous sample code:</br>' +
         'struct account{</br>' +
-        '   char type[11];</br>' +
-        '   char holder[31];</br>' +
-        '   char branch[21];</br>' +
-        '   char no[11];</br>' +
-        '   unsigned int bal;</br>' +
+        '&emsp;char type[11];</br>' +
+        '&emsp;char holder[31];</br>' +
+        '&emsp;char branch[21];</br>' +
+        '&emsp;char no[11];</br>' +
+        '&emsp;unsigned int bal;</br>' +
         '}</br>' +
         'typedef struct account account;</br>' +
         '//Or</br>' +
         'struct account{</br>' +
-        '   char type[11];</br>' +
-        '   char holder[31];</br>' +
-        '   char branch[21];</br>' +
-        '   char no[11];</br>' +
-        '   unsigned int bal;</br>' +
+        '&emsp;char type[11];</br>' +
+        '&emsp;char holder[31];</br>' +
+        '&emsp;char branch[21];</br>' +
+        '&emsp;char no[11];</br>' +
+        '&emsp;unsigned int bal;</br>' +
         '};</br>',
     instruction3: 'Write a function to fill up an account. It takes the account variables as input and returns an account structure.</br>' +
         'Now we have to fill up Suresh\'s account. Insert code to fill up his account as follows.</br></br>' +
@@ -77,33 +77,33 @@ window.view = {
     instruction4: 'Let us now write a code to find the details of the person with maximum balance in their account for the following main function..</br></br>' +
         '//Previous code</br>' +
         'struct account{</br>' +
-        '   char type[11];</br>' +
-        '   char holder[31];</br>' +
-        '   char branch[21];</br>' +
-        '   char no[11];</br>' +
-        '   unsigned int bal;</br>' +
+        '&emsp;char type[11];</br>' +
+        '&emsp;char holder[31];</br>' +
+        '&emsp;char branch[21];</br>' +
+        '&emsp;char no[11];</br>' +
+        '&emsp;unsigned int bal;</br>' +
         '}</br>' +
         'typedef struct account account;</br></br>' +
         '//Assume initAcc is defined and following is the prototype</br>' +
         'account initAcc(char* name,char* type,char* branch,char* number,unsigned int balance);</br></br>' +
         'void main(){</br>' +
-        '   account bank[4];</br>' +
-        '   bank[0]=initAcc(\"Ram\",\"Savings\",\",1000000000,300);</br>' +
-        '   bank[1]=initAcc(\"Shyam\",\"Savings\",\",1000000001,700);</br>' +
-        '   bank[2]=initAcc(\"Pradeep\",\"Current\",\",1000000002,600);</br>' +
-        '   bank[3]=initAcc(\"Suresh\",\"Savings\",\",1000000004,800);</br>' +
-        '   account max=findmax(bank);</br>' +
+        '&emsp;account bank[4];</br>' +
+        '&emsp;bank[0]=initAcc(\"Ram\",\"Savings\",\",1000000000,300);</br>' +
+        '&emsp;bank[1]=initAcc(\"Shyam\",\"Savings\",\",1000000001,700);</br>' +
+        '&emsp;bank[2]=initAcc(\"Pradeep\",\"Current\",\",1000000002,600);</br>' +
+        '&emsp;bank[3]=initAcc(\"Suresh\",\"Savings\",\",1000000004,800);</br>' +
+        '&emsp;account max=findmax(bank);</br>' +
         '}</br>',
     solutionHint1: 'struct account{\n\n\n\n};',
     solutionHint2: '',
     solutionHint3: 'account initAcc(char* name, char* type, char* branch, char* number, unsigned int balance)\n{\n\n}',
     solutionHint4: 'account findMaxBal(account src[], int size){\n}',
     solution1: 'struct account{</br>' +
-        '   char type[10];</br>' +
-        '   char holder[30];</br>' +
-        '   char branch[20];</br>' +
-        '   char no[10];</br>' +
-        '   unsigned int bal;</br>' +
+        '&emsp;char type[10];</br>' +
+        '&emsp;char holder[30];</br>' +
+        '&emsp;char branch[20];</br>' +
+        '&emsp;char no[10];</br>' +
+        '&emsp;unsigned int bal;</br>' +
         '};</br>',
     solution2: 'account ram;</br>' +
         'account shyam;</br>' +
@@ -137,15 +137,18 @@ window.view = {
         '}</br>',
     suggestion1: '\"Please Try Again\"',
     suggestion2: '',
+    // addClickEvent: add EventListener to other methods.
     addClickEvent: function (id, method) {
         var element = document.getElementById(id);
         element.addEventListener('click', method, false);
     },
+    // activateEvents: calls addClickEvent method to add EventListener to other methods.
     activateEvents: function () {
         this.addClickEvent('submitBtnId1', function() { view.showDefinitionOfAccount() });
         this.addClickEvent('yesBtnId1', function() { view.goOnDeclareStructure() });
         this.addClickEvent('noBtn', function() { view.removeErrorOfCode() });
     },
+    // removeClickEvent: remove EventListener to other methods.
     removeClickEvent: function (id, method) {
         var element = document.getElementById(id);
         element.removeEventListener('click', method, false);
@@ -158,38 +161,46 @@ window.view = {
     disableElement: function (id) {
         document.getElementById(id).disabled = true;
     },
+    // setString: set given string to a element.
     setString: function (id, value) {
         document.getElementById(id).value = value;
     },
+    // eraseString: erase given string to a element.
     eraseString: function (id) {
         document.getElementById(id).value = '';
     },
+    // setInnerHtml: set innerText to a element.
     setInnerHtml: function (id, innerHTML) {
         document.getElementById(id).innerHTML = innerHTML;
     },
+    // setNewId: set new id to a element.
     setNewId: function (oldId, newId) {
         document.getElementById(oldId).id = newId;
     },
+    // showButton: set button display style as block.
     showButton: function (id1, id2) {
         document.getElementById(id1).style.display = 'block';
         document.getElementById(id2).style.display = 'block';    
     },
+    // showButton: set button display style as none.
     hideButton: function (id1, id2) {
         document.getElementById(id1).style.display = 'none';
         document.getElementById(id2).style.display = 'none';
     },
+    // copyValue: copy value from one text area and past this value to another text area.
     copyValue: function (id1, id2) {
         var valueOfTextArea = document.getElementById(id1).value;
         document.getElementById(id2).value = valueOfTextArea;
     },
+    // 
     showDefinitionOfAccount: function () {
-        alert('submitBtnId1');
+        //alert('submitBtnId1');
         this.setInnerHtml('solutionArea', this.solution1);
         this.copyValue('solutionHintArea', 'viewUserCode');
         this.showButton('yesBtnId1', 'noBtn');
     },
     showDeclareStructure: function () {
-        alert('submitBtnId2');
+        //alert('submitBtnId2');
         this.setInnerHtml('solutionArea', this.solution2);
         this.copyValue('solutionHintArea', 'viewUserCode');
         this.showButton('yesBtnId1', 'noBtn');
@@ -197,7 +208,7 @@ window.view = {
         this.addClickEvent('yesBtnId2', function() { view.goToFillAccount() });
     },
     showFillAccount: function () {
-        alert('submitBtnId3');
+        //alert('submitBtnId3');
         this.setInnerHtml('solutionArea', this.solution3);
         this.copyValue('solutionHintArea', 'viewUserCode');
         this.showButton('yesBtnId2', 'noBtn');
@@ -205,7 +216,7 @@ window.view = {
         this.addClickEvent('yesBtnId3', function() { view.goToHandleData() });
     },
     showMaximumBalance: function () {
-        alert('submitBtnId4');
+        //alert('submitBtnId4');
         this.setInnerHtml('solutionArea', this.solution4);
         this.copyValue('solutionHintArea', 'viewUserCode');
         this.showButton('yesBtnId3', 'noBtn');
@@ -213,7 +224,7 @@ window.view = {
         this.addClickEvent('yesBtnId4', function() { view.goToEndOfCode() }); 
     },
     goOnDeclareStructure: function () {
-        alert('yesBtnId1');
+        //alert('yesBtnId1');
         this.setInnerHtml('instructionArea', this.instruction2);
         this.setInnerHtml('stepId', this.stepString2);
         this.setInnerHtml('guideLineId',  this.guidelineString2);
@@ -225,7 +236,7 @@ window.view = {
         this.addClickEvent('submitBtnId2', function() { view.showDeclareStructure() });
     },
     goToFillAccount: function () {
-        alert('yesBtnId2');
+        //alert('yesBtnId2');
         this.setInnerHtml('instructionArea', this.instruction3);
         this.setInnerHtml('stepId', this.stepString3);
         this.setInnerHtml('guideLineId',  this.guidelineString3);
@@ -237,7 +248,7 @@ window.view = {
         this.addClickEvent('submitBtnId3', function() { view.showFillAccount() });
     },
     goToHandleData: function () {
-        alert('yesBtnId3');
+        //alert('yesBtnId3');
         this.setInnerHtml('instructionArea', this.instruction4);
         this.setInnerHtml('stepId', this.stepString4);
         this.setInnerHtml('guideLineId',  this.guidelineString4);
@@ -249,11 +260,10 @@ window.view = {
         this.addClickEvent('submitBtnId4', function() { view.showMaximumBalance() });   
     },
     goToEndOfCode: function () {
-        alert('yesBtnId4');
+        //alert('yesBtnId4');
         alert('Code running is Over !');
-        this.setInnerHtml('solutionArea', '');
-        //this.setInitialString();
-        //this.setInitialId();
+        this.setInitialId();
+        this.setInitialString();
     },
     removeErrorOfCode: function () {
         this.setString('viewUserCode', this.suggestion1);
@@ -263,13 +273,14 @@ window.view = {
     setInitialId: function () {
         this.setNewId('submitBtnId4', 'submitBtnId1');
         this.setNewId('yesBtnId4', 'yesBtnId1');
+        this.addClickEvent('submitBtnId1', function() { view.showDefinitionOfAccount() });
     },
     setInitialString: function () {
         this.setInnerHtml('instructionArea', this.instruction1);
         this.setString('solutionHintArea', this.solutionHint1);
         this.setInnerHtml('stepId', this.stepString1);
         this.setInnerHtml('guideLineId',  this.guidelineString1);
-        this.setInnerHtml('viewUserCode', '');
+        this.setString('viewUserCode', '');
         this.setInnerHtml('solutionArea', '');
     },
     init: function () {
