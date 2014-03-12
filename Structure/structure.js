@@ -15,7 +15,7 @@ window.view = {
     guidelineString1: 'Definition of Account',
     guidelineString2: 'Declare a structure below',
     guidelineString3: 'Function to fill an account',
-    guidelineString4: 'Code to find person with maximum balance',
+    guidelineString4: 'Find person with maximum balance',
     instruction1: 'Bank of Gujrat has decided to computerize all its records.</br>' +
         'They hired a software programmer, Ravi.</br>' +
         'He suggested that five pieces of data had to be maintained in every account.</br></br>' +
@@ -153,6 +153,10 @@ window.view = {
         var element = document.getElementById(id);
         element.removeEventListener('click', method, false);
     },
+    // changeClass: changes class name of a element.
+    changeClass: function(id, className) {
+        document.getElementById(id).className = className
+    },
     // enableElement: makes element enable.
     enableElement: function (id) {
         document.getElementById(id).disabled = false;
@@ -169,8 +173,8 @@ window.view = {
     eraseString: function (id) {
         document.getElementById(id).value = '';
     },
-    // setInnerHtml: set innerText to a element.
-    setInnerHtml: function (id, innerHTML) {
+    // setInnerHTML: set innerText to a element.
+    setInnerHTML: function (id, innerHTML) {
         document.getElementById(id).innerHTML = innerHTML;
     },
     // setNewId: set new id to a element.
@@ -192,83 +196,104 @@ window.view = {
         var valueOfTextArea = document.getElementById(id1).value;
         document.getElementById(id2).value = valueOfTextArea;
     },
+    // checkDefinitionOfAccount: function () {
+    //     var stringOfTextArea = document.getElementById('solutionHintArea').value;
+    //     if (stringOfTextArea.count('char') !== 4) {
+    //         alert(stringOfTextArea.count('char'));
+    //     }
+    // },
     // 
     showDefinitionOfAccount: function () {
         //alert('submitBtnId1');
-        this.setInnerHtml('solutionArea', this.solution1);
+        //this.checkDefinitionOfAccount();
+        this.setInnerHTML('solutionArea', this.solution1);
         this.copyValue('solutionHintArea', 'viewUserCode');
-        this.showButton('yesBtnId1', 'noBtn');
+        //this.showButton('yesBtnId1', 'noBtn');
+        this.changeClass('yesBtnId1', 'button buttonPosition');
+        this.changeClass('noBtn', 'button buttonPosition');
     },
-    showDeclareStructure: function () {
+    showDeclarationStructure: function () {
         //alert('submitBtnId2');
-        this.setInnerHtml('solutionArea', this.solution2);
+        this.setInnerHTML('solutionArea', this.solution2);
         this.copyValue('solutionHintArea', 'viewUserCode');
-        this.showButton('yesBtnId1', 'noBtn');
+        //this.showButton('yesBtnId1', 'noBtn');
+        this.changeClass('yesBtnId1', 'button buttonPosition');
+        this.changeClass('noBtn', 'button buttonPosition');
         this.setNewId('yesBtnId1', 'yesBtnId2');
         this.addClickEvent('yesBtnId2', function() { view.goToFillAccount() });
     },
-    showFillAccount: function () {
+    showHowToFillAccount: function () {
         //alert('submitBtnId3');
-        this.setInnerHtml('solutionArea', this.solution3);
+        this.setInnerHTML('solutionArea', this.solution3);
         this.copyValue('solutionHintArea', 'viewUserCode');
-        this.showButton('yesBtnId2', 'noBtn');
+        //this.showButton('yesBtnId2', 'noBtn');
+        this.changeClass('yesBtnId2', 'button buttonPosition');
+        this.changeClass('noBtn', 'button buttonPosition');
         this.setNewId('yesBtnId2', 'yesBtnId3');
         this.addClickEvent('yesBtnId3', function() { view.goToHandleData() });
     },
     showMaximumBalance: function () {
         //alert('submitBtnId4');
-        this.setInnerHtml('solutionArea', this.solution4);
+        this.setInnerHTML('solutionArea', this.solution4);
         this.copyValue('solutionHintArea', 'viewUserCode');
-        this.showButton('yesBtnId3', 'noBtn');
+        //this.showButton('yesBtnId3', 'noBtn');
+        this.changeClass('yesBtnId3', 'button buttonPosition');
+        this.changeClass('noBtn', 'button buttonPosition');
         this.setNewId('yesBtnId3', 'yesBtnId4');
         this.addClickEvent('yesBtnId4', function() { view.goToEndOfCode() }); 
     },
     goOnDeclareStructure: function () {
         //alert('yesBtnId1');
-        this.setInnerHtml('instructionArea', this.instruction2);
-        this.setInnerHtml('stepId', this.stepString2);
-        this.setInnerHtml('guideLineId',  this.guidelineString2);
-        this.setInnerHtml('solutionArea', '');
+        this.setInnerHTML('instructionArea', this.instruction2);
+        this.setInnerHTML('stepId', this.stepString2);
+        this.setInnerHTML('guideLineId',  this.guidelineString2);
+        this.setInnerHTML('solutionArea', '');
         this.eraseString('solutionHintArea');
         this.eraseString('viewUserCode');
         this.setNewId('submitBtnId1', 'submitBtnId2');
-        this.hideButton('yesBtnId1', 'noBtn');
-        this.addClickEvent('submitBtnId2', function() { view.showDeclareStructure() });
+        this.changeClass('yesBtnId1', 'button buttonPosition hide');
+        this.changeClass('noBtn', 'button buttonPosition hide');
+        this.addClickEvent('submitBtnId2', function() { view.showDeclarationStructure() });
     },
     goToFillAccount: function () {
         //alert('yesBtnId2');
-        this.setInnerHtml('instructionArea', this.instruction3);
-        this.setInnerHtml('stepId', this.stepString3);
-        this.setInnerHtml('guideLineId',  this.guidelineString3);
-        this.setInnerHtml('solutionArea', '');
+        this.setInnerHTML('instructionArea', this.instruction3);
+        this.setInnerHTML('stepId', this.stepString3);
+        this.setInnerHTML('guideLineId',  this.guidelineString3);
+        this.setInnerHTML('solutionArea', '');
         this.setString('solutionHintArea', this.solutionHint3);
         this.eraseString('viewUserCode');
         this.setNewId('submitBtnId2', 'submitBtnId3');
-        this.hideButton('yesBtnId2', 'noBtn');
-        this.addClickEvent('submitBtnId3', function() { view.showFillAccount() });
+        //this.hideButton('yesBtnId2', 'noBtn');
+        this.changeClass('yesBtnId2', 'button buttonPosition hide');
+        this.changeClass('noBtn', 'button buttonPosition hide');
+        this.addClickEvent('submitBtnId3', function() { view.showHowToFillAccount() });
     },
     goToHandleData: function () {
         //alert('yesBtnId3');
-        this.setInnerHtml('instructionArea', this.instruction4);
-        this.setInnerHtml('stepId', this.stepString4);
-        this.setInnerHtml('guideLineId',  this.guidelineString4);
-        this.setInnerHtml('solutionArea', '');
+        this.setInnerHTML('instructionArea', this.instruction4);
+        this.setInnerHTML('stepId', this.stepString4);
+        this.setInnerHTML('guideLineId',  this.guidelineString4);
+        this.setInnerHTML('solutionArea', '');
         this.setString('solutionHintArea', this.solutionHint4);
         this.setNewId('submitBtnId3', 'submitBtnId4');
-        this.hideButton('yesBtnId3', 'noBtn');
+        //this.hideButton('yesBtnId3', 'noBtn');
+        this.changeClass('yesBtnId3', 'button buttonPosition hide');
+        this.changeClass('noBtn', 'button buttonPosition hide');
         this.eraseString('viewUserCode');
         this.addClickEvent('submitBtnId4', function() { view.showMaximumBalance() });   
     },
     goToEndOfCode: function () {
         //alert('yesBtnId4');
         alert('Code running is Over !');
-        this.setInitialId();
-        this.setInitialString();
+        window.location.reload();
+        // this.setInitialId();
+        // this.setInitialString();
     },
     removeErrorOfCode: function () {
         this.setString('viewUserCode', this.suggestion1);
-        this.setInnerHtml('solutionArea', this.suggestion2);
-        this.hideButton('yesBtnId1', 'noBtn');
+        this.setInnerHTML('solutionArea', this.suggestion2);
+        //this.hideButton('yesBtnId1', 'noBtn');
     },
     setInitialId: function () {
         this.setNewId('submitBtnId4', 'submitBtnId1');
@@ -276,12 +301,12 @@ window.view = {
         this.addClickEvent('submitBtnId1', function() { view.showDefinitionOfAccount() });
     },
     setInitialString: function () {
-        this.setInnerHtml('instructionArea', this.instruction1);
+        this.setInnerHTML('instructionArea', this.instruction1);
         this.setString('solutionHintArea', this.solutionHint1);
-        this.setInnerHtml('stepId', this.stepString1);
-        this.setInnerHtml('guideLineId',  this.guidelineString1);
+        this.setInnerHTML('stepId', this.stepString1);
+        this.setInnerHTML('guideLineId',  this.guidelineString1);
         this.setString('viewUserCode', '');
-        this.setInnerHtml('solutionArea', '');
+        this.setInnerHTML('solutionArea', '');
     },
     init: function () {
         this.activateEvents();

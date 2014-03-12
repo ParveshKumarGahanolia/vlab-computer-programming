@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="structure.css" />
-<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'> -->
 <script src = "structure.js"></script>
 <title>Structure</title>
 </head>
@@ -13,8 +13,9 @@
 
 <div class="executionDivision" >
 	<div class="executionDivisionTitle" id='stepId'><div class="executionPic"></div><div class="executionText">Experiment Structure</div></div>
-	<div class="stepExecutionDisplay" id='instructionArea' >
-		
+	<div class="stepExecutionDisplay"  >
+		<div class="instructionArea" id='instructionArea'>
+		</div>
 	</div><!-- end of stepExecutionDisplay -->
 
 </div><!-- end of executionDivision -->
@@ -22,8 +23,8 @@
 <div class="outputDivision"> 
 	<div class="outputDivisionTitle"><div class="outputPic"></div>
 		<div class="outputText" id='guideLineId'></div>
-		<!-- <button class="button buttonPosition" id='submitBtnId1'>Submit Code</button> -->
-		<button id='submitBtnId1'>Submit Code</button>
+		<button class="button buttonPosition" id='submitBtnId1'>Submit Code</button>
+		<!-- <button id='submitBtnId1'>Submit Code</button> -->
 	</div>
 	<div class="resultDisplay" >
 		<textarea class="codeEditArea" id='solutionHintArea'></textarea>
@@ -38,10 +39,10 @@
 </div><!-- end of codeOutputDivision -->
 <div class="codeExplanationDivision">
 	<div class = "codeExplanationTitle" ><div class="solutionPicture"></div><div class="solutionText">Solution </div>
-	<!-- <button id='noBtn' class="button buttonPosition" hidden>No</button>
-	<button id='yesBtnId1' class="button buttonPosition" hidden>Yes</button> -->
-	<button id='noBtn' hidden>No</button>
-	<button id='yesBtnId1' hidden>Yes</button>
+	<button id='noBtn' class="button buttonPosition hide">No</button>
+	<button id='yesBtnId1' class="button buttonPosition hide">Yes</button>
+	<!-- <button id='noBtn' hidden>No</button>
+	<button id='yesBtnId1' hidden>Yes</button> -->
 	</div>
 	<div class="codeExplanationBody" >
 		<div class="explanationText" id='solutionArea'></div>

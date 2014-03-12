@@ -216,11 +216,10 @@ body {
 	left: 0%;
 	width: 100%;
 	height: 82%;
-	font-size: 1em;
 	border-top: 1px solid #CCC;
 }
 
-.explanationText, .codeOutputText{
+/*.explanationText, .codeOutputText{
     position: absolute;
     top: 10%;
     left: 5%;
@@ -228,7 +227,7 @@ body {
     height: 80%;
     text-align: left;
     font-size: 1em;
-}
+}*/
 
 .textField {
     margin-top: 10px;
@@ -285,7 +284,7 @@ body {
     border-top:1px solid #CCC;
 }
 
-.codeEditArea{
+.codeEditArea, .explanationText, .codeOutputText, .instructionArea{ 
     position: absolute;
     left: 2%;
     top: 3%;
@@ -293,6 +292,15 @@ body {
     width: 96%;
     outline: none;
     border: none;
+    text-align: left;
+}
+
+.codeEditArea, .codeOutputText{
+    font-size: 1.2em;
+}
+
+.instructionArea, .explanationText{
+    font-size: 1em;
 }
 
 .table1 {
@@ -334,7 +342,6 @@ body {
 .stepExecutionDisplay {
     padding-left: 2%;
     overflow-x: auto;
-    font-size: 1.2em;
     position: absolute;
     top: 13%;
     left: 0%;
